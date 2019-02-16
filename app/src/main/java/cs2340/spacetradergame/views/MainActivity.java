@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onStartPressed(View view) {
-        Intent intent = new Intent(MainActivity.this, CreateCharacterActivity.class);
+        Intent intent = new Intent(MainActivity.this, NewGameActivity.class);
         startActivity(intent);
     }
 }

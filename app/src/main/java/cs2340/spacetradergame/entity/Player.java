@@ -1,25 +1,27 @@
 package cs2340.spacetradergame.entity;
 
+import cs2340.spacetradergame.model.Game;
+
 public class Player {
 
     private String name;
     private int credits = 1000;
-    private int traderPoints;
-    private int engineerPoints;
     private int pilotPoints;
     private int fighterPoints;
+    private int traderPoints;
+    private int engineerPoints;
     private Spaceship ship = new Gnat();
 
-    public void player(String name, int trader, int engineer, int pilot, int fighter){
+    public Player(String name, int pilot, int fighter, int trader, int engineer){
         this.name = name;
-        traderPoints = trader;
-        engineerPoints = engineer;
         pilotPoints = pilot;
         fighterPoints = fighter;
+        traderPoints = trader;
+        engineerPoints = engineer;
     }
 
-    public void player(){
-        this.player("Player", 0, 0, 0, 0);
+    public Player(){
+        this("Player", Game.MAX_SKILL_POINTS, 0, 0, 0);
     }
 
     public String getName() {
@@ -30,20 +32,20 @@ public class Player {
         return credits;
     }
 
-    public int getTraderPoints() {
-        return traderPoints;
-    }
-
-    public int getEngineerPoints() {
-        return engineerPoints;
-    }
-
     public int getPilotPoints() {
         return pilotPoints;
     }
 
     public int getFighterPoints() {
         return fighterPoints;
+    }
+
+    public int getTraderPoints() {
+        return traderPoints;
+    }
+
+    public int getEngineerPoints() {
+        return engineerPoints;
     }
 
     public Spaceship getShip() {
@@ -76,5 +78,14 @@ public class Player {
 
     public void setShip(Spaceship ship) {
         this.ship = ship;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name
+                + " Pilot Points: " + String.valueOf(pilotPoints)
+                + " Fighter Points: " + String.valueOf(fighterPoints)
+                + " Trader Points: " + String.valueOf(traderPoints)
+                + " Engineer Points: " + String.valueOf(engineerPoints);
     }
 }

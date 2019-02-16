@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.CreateCharacterActivity">
+    tools:context=".views.NewGameActivity">
 
     <TextView
         android:id="@+id/textEngineer"
