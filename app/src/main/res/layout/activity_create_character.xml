@@ -21,6 +21,7 @@
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="76dp"
+        android:onClick="onSubtractEngineerPressed"
         android:text="-"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,11 +29,12 @@
 
     <TextView
         android:id="@+id/currentEngineer"
-        android:layout_width="8dp"
+        android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="14dp"
         android:text="0"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/subtractEngineer"
         app:layout_constraintTop_toTopOf="@+id/subtractEngineer" />
 
@@ -41,6 +43,7 @@
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="12dp"
+        android:onClick="onAddEngineerPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/currentEngineer"
@@ -61,6 +64,7 @@
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="76dp"
+        android:onClick="onSubtractTraderPressed"
         android:text="-"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,11 +72,12 @@
 
     <TextView
         android:id="@+id/currentTrader"
-        android:layout_width="8dp"
+        android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="14dp"
         android:text="0"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/subtractTrader"
         app:layout_constraintTop_toTopOf="@+id/subtractTrader" />
 
@@ -81,6 +86,7 @@
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="12dp"
+        android:onClick="onAddTraderPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/currentTrader"
@@ -101,6 +107,7 @@
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="76dp"
+        android:onClick="onSubtractFighterPressed"
         android:text="-"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,11 +115,12 @@
 
     <TextView
         android:id="@+id/currentFighter"
-        android:layout_width="8dp"
+        android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="14dp"
         android:text="0"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/subtractPilot"
         app:layout_constraintTop_toTopOf="@+id/subtractFighter" />
 
@@ -121,6 +129,7 @@
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="12dp"
+        android:onClick="onAddFighterPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/currentFighter"
@@ -143,8 +152,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:ems="10"
+        android:hint="Character Name"
         android:inputType="textPersonName"
-        android:text="Character Name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -159,7 +168,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/levelBar"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="336dp"
         android:layout_height="20dp"
@@ -174,7 +183,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Level"
+        android:id="@+id/currentLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
@@ -188,16 +197,18 @@
         android:layout_height="46dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="56dp"
+        android:onClick="onSubtractPilotPressed"
         android:text="-"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/levelBar" />
 
     <Button
         android:id="@+id/addPilot"
         android:layout_width="40dp"
         android:layout_height="46dp"
         android:layout_marginStart="12dp"
+        android:onClick="onAddPilotPressed"
         android:text="+"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/currentPilot"
@@ -215,11 +226,12 @@
 
     <TextView
         android:id="@+id/currentPilot"
-        android:layout_width="8dp"
+        android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="14dp"
         android:text="0"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/subtractPilot"
         app:layout_constraintTop_toTopOf="@+id/subtractPilot" />
 
@@ -249,15 +261,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="264dp"
+        android:onClick="onClearPressed"
         android:text="Clear"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/levelBar" />
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
+        android:onClick="onStartPressed"
         android:text="Start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonClear" />
