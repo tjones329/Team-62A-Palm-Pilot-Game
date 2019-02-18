@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Space Trader Game</string>
+    <color name="quartz">#4B4B4C</color>
 </resources>

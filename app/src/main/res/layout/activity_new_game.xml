@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/quartz"
     tools:context=".views.NewGameActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="46dp"
         android:text="Engineer:"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textTrader" />
 
@@ -29,6 +31,7 @@
 
     <TextView
         android:id="@+id/currentEngineer"
+        android:textColor="#AFAFAF"
         android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
@@ -56,6 +59,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="46dp"
         android:text="Trader:"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textFighter" />
 
@@ -72,6 +76,7 @@
 
     <TextView
         android:id="@+id/currentTrader"
+        android:textColor="#AFAFAF"
         android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
@@ -99,6 +104,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="46dp"
         android:text="Fighter:"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textPilot" />
 
@@ -115,6 +121,7 @@
 
     <TextView
         android:id="@+id/currentFighter"
+        android:textColor="#AFAFAF"
         android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
@@ -142,17 +149,20 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Start New Game"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/textName"
+        android:textColor="#AFAFAF"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="Character Name"
+        android:textColorHint="#AFAFAF"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -164,6 +174,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="144dp"
         android:text="Level"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -188,6 +199,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
         android:text="Normal"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toEndOf="@+id/textLevel"
         app:layout_constraintTop_toTopOf="@+id/textLevel" />
 
@@ -221,11 +233,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Pilot:"
+        android:textColor="#AFAFAF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/subtractPilot" />
 
     <TextView
         android:id="@+id/currentPilot"
+        android:textColor="#AFAFAF"
         android:layout_width="16dp"
         android:layout_height="18dp"
         android:layout_marginStart="12dp"
@@ -237,6 +251,7 @@
 
     <TextView
         android:id="@+id/currentSkill"
+        android:textColor="#AFAFAF"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
         android:layout_marginStart="36dp"
@@ -252,6 +267,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="46dp"
         android:text="Skill Points:"
+        android:textColor="#AFAFAF"
         app:layout_constraintBottom_toBottomOf="@+id/textPilot"
         app:layout_constraintStart_toStartOf="parent" />
 
