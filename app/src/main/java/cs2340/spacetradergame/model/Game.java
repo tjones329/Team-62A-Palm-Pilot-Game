@@ -3,6 +3,7 @@ package cs2340.spacetradergame.model;
 import android.util.Log;
 
 import cs2340.spacetradergame.entity.Player;
+import cs2340.spacetradergame.entity.Universe;
 
 public class Game {
     public static final int MAX_SKILL_POINTS = 16;
@@ -10,9 +11,14 @@ public class Game {
 
     private int difficulty;
     private Player player;
+    private Universe universe;
 
     public static Game getInstance() {
         return instance;
+    }
+
+    public void newUniverse() {
+        universe = new Universe();
     }
 
     public int getDifficulty() {
