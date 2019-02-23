@@ -17,6 +17,6 @@ public class NewGameViewModel extends AndroidViewModel {
     public void createGame(String name, int difficulty, int pilot, int fighter, int trader, int engineer) {
         game.setDifficulty(difficulty);
         game.setPlayer(new Player(name, pilot, fighter, trader, engineer));
-        //game.newUniverse();
+        game.newUniverse();
     }
 }

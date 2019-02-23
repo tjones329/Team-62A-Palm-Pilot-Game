@@ -19,6 +19,7 @@ public class Game {
 
     public void newUniverse() {
         universe = new Universe();
+        universe.logUniverse();
     }
 
     public int getDifficulty() {
