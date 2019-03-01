@@ -2,6 +2,7 @@ package cs2340.spacetradergame.entity;
 
 import android.util.Log;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -85,6 +86,30 @@ public class SolarSystem {
                 added = planets.add(curr);
             } while (!added);
         }
+    }
+
+    /**
+     * the logic for getting planet positions in xy value pairs when the solarsystem is zoomed in on
+     * @return a set of double[] with double[0] = x and double[1] = y
+     */
+    public Set<double[]> onZoom() {
+        HashSet<double[]> locations = new HashSet<>(this.planets.size());
+        for (Planet p : this.planets) {
+            boolean done = false;
+            while (!done) {
+                done = true;
+                double[] xyValue = p.getCoords();
+                for (double[] planetLocation : locations) {
+                    if (xyValue[0] == planetLocation[0] && xyValue[1] == planetLocation[1]) {
+                        done = false;
+                    }
+                }
+                if (done) {
+                    locations.add(xyValue);
+                }
+            }
+        }
+        return locations;
     }
 
     public String getName() {

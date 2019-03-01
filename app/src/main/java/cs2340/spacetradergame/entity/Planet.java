@@ -13,6 +13,24 @@ public class Planet {
         orbitRadius = random.nextInt(MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
     }
 
+    /**
+     * Gives a random xy value pair that is radius distance away from the sun(assuming the sun is at
+     *  (0,0))
+     *
+     * @return a double[] with double[0] = x and double[1] = y
+     */
+    public double[] getCoords(){
+        Random rand = new Random();
+        double angle = rand.nextInt(360) / 360.0;
+        double coord;
+        double[] returnValue = new double[2];
+        coord = Math.cos(angle) * this.orbitRadius * 100;
+        returnValue[0] = Math.round(coord);
+        coord = Math.sin(angle) * this.orbitRadius * 100;
+        returnValue[1] = Math.round(coord);
+        return returnValue;
+    }
+
     public String getName() {
         return name;
     }
@@ -40,4 +58,5 @@ public class Planet {
     public String toString() {
         return name + " with orbit radius " + orbitRadius;
     }
+
 }
