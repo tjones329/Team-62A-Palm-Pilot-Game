@@ -21,13 +21,13 @@ public class Planet {
      */
     public double[] getCoords(){
         Random rand = new Random();
-        double angle = rand.nextInt(360) / 360.0;
+        double angle = rand.nextInt(360) * 180 / Math.PI;
         double coord;
         double[] returnValue = new double[2];
         coord = Math.cos(angle) * this.orbitRadius * 100;
-        returnValue[0] = Math.round(coord);
+        returnValue[0] = Math.round(coord) / 10;
         coord = Math.sin(angle) * this.orbitRadius * 100;
-        returnValue[1] = Math.round(coord);
+        returnValue[1] = Math.round(coord) / 10;
         return returnValue;
     }
 
