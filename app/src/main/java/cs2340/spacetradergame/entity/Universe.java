@@ -137,6 +137,21 @@ public class Universe {
         }
     }
 
+    //For the purposes of m7, we return a random planet because we can't navigate different planets
+    public Planet getCurrentPlanet() {
+        //apparently you can't directly access an index of a set, so I had to do a jank
+        //thing like iterate through the entire list and return the first lol
+        Planet currentPlanet = null;
+        for (SolarSystem system : systems) {
+            for (Planet planet : system.planets) {
+                currentPlanet = planet;
+                break;
+            }
+            break;
+        }
+        return currentPlanet;
+    }
+
     public void logUniverse() {
         Log.d("System number", String.valueOf(systems.size()));
         for (SolarSystem s : systems) {

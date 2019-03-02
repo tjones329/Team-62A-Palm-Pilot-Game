@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.model.Game;
 
@@ -18,5 +19,9 @@ public class NewGameViewModel extends AndroidViewModel {
         game.setDifficulty(difficulty);
         game.setPlayer(new Player(name, pilot, fighter, trader, engineer));
         game.newUniverse();
+    }
+
+    public Planet getCurrentPlanet() {
+        return game.getCurrentPlanet();
     }
 }

@@ -7,10 +7,25 @@ public class Planet {
     public static final int MIN_RADIUS = 2;
     private String name;
     private int orbitRadius;
+    private int techLevel;
+    private Market market;
 
     public Planet(String name, Random random) {
         this.name = name;
         orbitRadius = random.nextInt(MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
+    }
+
+    /**
+     * Gives the planet a unique tech level. For purposes of M7, although we have a variety
+     * of different attributes such as "resources" or "pirates", we will ignore them for now. We're
+     * still passing them in, but in order to calculate the prices for the market, techLevel is
+     * the only necessary variable.
+     * @param techLevel passed in techLevel for the creation of the market, prices determined in
+     * market
+     */
+    public void initializeMarket(int techLevel) {
+        this.techLevel = techLevel;
+        market = new Market(techLevel);
     }
 
     /**
@@ -34,6 +49,8 @@ public class Planet {
     public String getName() {
         return name;
     }
+
+    public Market getMarket() { return market;}
 
     public int getOrbitRadius() {
         return orbitRadius;

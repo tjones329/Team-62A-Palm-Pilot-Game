@@ -11,5 +11,8 @@ public class PlanetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_planet);
+
+        //to get the current planet, call the method in the viewModel getCurrentPlanet
+        //also, to get the prices, do planet.getMarket, and then call method calculateprices
     }
 }

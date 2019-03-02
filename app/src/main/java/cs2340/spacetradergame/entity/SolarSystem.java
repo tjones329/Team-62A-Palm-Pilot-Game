@@ -35,7 +35,7 @@ public class SolarSystem {
 
     private String name;
     private Point pos;
-    private TechLevel techLevel;
+    private int randomTechLevel;
     private Resources resources;
     private Pirates pirates;
     private Police police;
@@ -66,7 +66,8 @@ public class SolarSystem {
     }
 
     public void startSystem(String[] planetNames, Random random) {
-        techLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)];
+        //we don't want techLevel to be system wide, it should vary for each planet. Commented out
+        //techLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)];
         int resourcesInt = random.nextInt(Resources.resources.length + 3);
         if (resourcesInt < 3) {
             resources = Resources.NOSPECIALRESOURCES;
@@ -85,6 +86,11 @@ public class SolarSystem {
                 curr = new Planet(s, random);
                 added = planets.add(curr);
             } while (!added);
+        }
+        //once we've made sure that all planets are successfully added, we want each to have market
+        for (Planet p : planets) {
+            randomTechLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)].ordinal();
+            p.initializeMarket(randomTechLevel);
         }
     }
 
@@ -123,7 +129,7 @@ public class SolarSystem {
     public void logSystem() {
         Log.d("Solar System", "Name: " + name
                 + " Position: " + pos.toString()
-                + " Tech Level: " + techLevel
+                //+ " Tech Level: " + techLevel
                 + " Resources: " + resources
                 + " Pirates: " + pirates
                 + " Police: " + police

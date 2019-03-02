@@ -2,6 +2,7 @@ package cs2340.spacetradergame.model;
 
 import android.util.Log;
 
+import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.entity.Universe;
 
@@ -20,6 +21,10 @@ public class Game {
     public void newUniverse() {
         universe = new Universe();
         universe.logUniverse();
+    }
+
+    public Planet getCurrentPlanet() {
+        return universe.getCurrentPlanet();
     }
 
     public int getDifficulty() {
