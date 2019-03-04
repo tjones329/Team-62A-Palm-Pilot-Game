@@ -2,8 +2,10 @@ package cs2340.spacetradergame.model;
 
 import android.util.Log;
 
+import cs2340.spacetradergame.entity.Gnat;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
+import cs2340.spacetradergame.entity.Spaceship;
 import cs2340.spacetradergame.entity.Universe;
 
 public class Game {
@@ -43,5 +45,6 @@ public class Game {
     public void setPlayer(Player player) {
         Log.d("Player set", player.toString());
         this.player = player;
+        player.setShip(new Gnat());
     }
 }

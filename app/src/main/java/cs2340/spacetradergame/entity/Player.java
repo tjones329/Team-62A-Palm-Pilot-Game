@@ -80,6 +80,8 @@ public class Player {
         this.ship = ship;
     }
 
+    public Spaceship returnShip() {return ship;}
+
     @Override
     public String toString() {
         return "Name: " + name
