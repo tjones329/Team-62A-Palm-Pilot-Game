@@ -106,46 +106,46 @@ public class BuyActivity extends AppCompatActivity {
         available = market.getQuantities();
         prices = market.getPrices();
 
-        p1.setText(prices[0]);
-        a1.setText(available[0]);
+        p1.setText(prices[0] + "");
+        a1.setText(available[0] + "");
 
-        p2.setText(prices[1]);
-        p2.setText(available[1]);
+        p2.setText(prices[1] + "");
+        a2.setText(available[1] + "");
 
-        p3.setText(prices[2]);
-        a3.setText(available[2]);
+        p3.setText(prices[2] + "");
+        a3.setText(available[2] + "");
 
-        p4.setText(prices[3]);
-        p4.setText(available[3]);
+        p4.setText(prices[3] + "");
+        a4.setText(available[3] + "");
 
-        p5.setText(prices[4]);
-        a5.setText(available[4]);
+        p5.setText(prices[4] + "");
+        a5.setText(available[4] + "");
 
-        p6.setText(prices[5]);
-        p6.setText(available[5]);
+        p6.setText(prices[5] + "");
+        a6.setText(available[5] + "");
 
-        p7.setText(prices[6]);
-        a7.setText(available[6]);
+        p7.setText(prices[6] + "");
+        a7.setText(available[6] + "");
 
-        p8.setText(prices[7]);
-        p8.setText(available[7]);
+        p8.setText(prices[7] + "");
+        a8.setText(available[7] + "");
 
-        p9.setText(prices[8]);
-        a9.setText(available[8]);
+        p9.setText(prices[8] + "");
+        a9.setText(available[8] + "");
 
-        p10.setText(prices[9]);
-        p10.setText(available[9]);
+        p10.setText(prices[9] + "");
+        a10.setText(available[9] + "");
 
-        q1.setText(0);
-        q2.setText(0);
-        q3.setText(0);
-        q4.setText(0);
-        q5.setText(0);
-        q6.setText(0);
-        q7.setText(0);
-        q8.setText(0);
-        q9.setText(0);
-        q10.setText(0);
+        q1.setText(0 + "");
+        q2.setText(0 + "");
+        q3.setText(0 + "");
+        q4.setText(0 + "");
+        q5.setText(0 + "");
+        q6.setText(0 + "");
+        q7.setText(0 + "");
+        q8.setText(0 + "");
+        q9.setText(0 + "");
+        q10.setText(0 + "");
 
 
         //to get the current planet, call the method in the viewModel getCurrentPlanet
@@ -171,6 +171,7 @@ public class BuyActivity extends AppCompatActivity {
             if (buy[i] > available[i]) {
                 testAvailable = false;
             }
+            System.out.println(buy[i]);
         }
 
     }
