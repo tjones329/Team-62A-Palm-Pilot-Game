@@ -253,11 +253,13 @@
         android:id="@+id/currentSkill"
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="204dp"
         android:text="16"
         android:textAlignment="center"
         android:textColor="#AFAFAF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/addPilot"
-        tools:layout_editor_absoluteX="125dp" />
+        app:layout_constraintStart_toEndOf="@+id/textSkill"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textSkill"

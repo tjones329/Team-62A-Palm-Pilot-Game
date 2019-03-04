@@ -32,7 +32,9 @@ public class Market {
         }
         return prices;
     }
-
+    public String toString() {
+        return techLevel + "";
+    }
     /**
      * Determines whether a particular market item is even produced by the planet
      * @param item passed in enum item

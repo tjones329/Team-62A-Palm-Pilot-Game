@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textDisplayTechLevel"
+        android:layout_width="227dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="470dp"
+        android:text="TextView"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textPlanetInfo"
+        android:layout_width="188dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="28dp"
+        android:text="Planet Info"
+        android:textSize="36dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textPlanetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="132dp"
+        android:text="Planet Name: "
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textGovernment"
+        android:layout_width="148dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
+        android:text="Government: "
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textPlanetName" />
+
+    <TextView
+        android:id="@+id/textTechLevel"
+        android:layout_width="148dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="148dp"
+        android:text="Tech Level: "
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textGovernment" />
+
+    <TextView
+        android:id="@+id/textDisplayPlanetName"
+        android:layout_width="230dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="180dp"
+        android:text="TextView"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textDisplayGovernment"
+        android:layout_width="227dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="320dp"
+        android:text="TextView"
+        android:textSize="48sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBuyFromPlanet"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="588dp"
+        android:layout_marginBottom="8dp"
+        android:text="Buy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <Button
+        android:id="@+id/buttonSellToPlanet"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="588dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Sell"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTravel"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toEndOf="@+id/buttonBuyFromPlanet"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <Button
+        android:id="@+id/buttonTravel"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="588dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        android:text="Travel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.12" />
+
+</android.support.constraint.ConstraintLayout>

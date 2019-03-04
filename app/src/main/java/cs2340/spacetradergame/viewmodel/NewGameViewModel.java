@@ -9,7 +9,7 @@ import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.model.Game;
 
 public class NewGameViewModel extends AndroidViewModel {
-    Game game = Game.getInstance();
+    static Game game = Game.getInstance();
 
     public NewGameViewModel(@NonNull Application application) {
         super(application);
@@ -21,7 +21,7 @@ public class NewGameViewModel extends AndroidViewModel {
         game.newUniverse();
     }
 
-    public Planet getCurrentPlanet() {
+    public static Planet getCurrentPlanet() {
         return game.getCurrentPlanet();
     }
 
