@@ -28,7 +28,7 @@ public class PlanetActivity extends AppCompatActivity {
         //also, to get the prices, do planet.getMarket, and then call method calculateprices
     }
 
-    public void onStartPressed(View view) {
+    public void onMarketPressed(View view) {
             Intent intent = new Intent(PlanetActivity.this, BuyActivity.class);
             startActivity(intent);
     }

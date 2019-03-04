@@ -25,5 +25,5 @@ public class NewGameViewModel extends AndroidViewModel {
         return game.getCurrentPlanet();
     }
 
-    public Player getPlayer() {return game.getPlayer();}
+    public static Player getPlayer() {return game.getPlayer();}
 }
