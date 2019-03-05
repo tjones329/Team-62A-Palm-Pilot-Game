@@ -100,9 +100,6 @@ public class BuyActivity extends AppCompatActivity {
         q9 = findViewById((R.id.q9));
         q10 = findViewById((R.id.q10));
 
-        market.calculatePrices();
-        market.calculateQuantities();
-
         available = market.getQuantities();
         prices = market.getPrices();
 
@@ -190,7 +187,7 @@ public class BuyActivity extends AppCompatActivity {
             }
         } else {
             Toast.makeText(BuyActivity.this,
-                    "Cannot buy more than available", Toast.LENGTH_SHORT).show();
+                    "Tech level not high enough, or cannot buy more than available", Toast.LENGTH_SHORT).show();
         }
 
         a1.setText(available[0] + "");

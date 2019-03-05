@@ -91,6 +91,8 @@ public class SolarSystem {
         for (Planet p : planets) {
             randomTechLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)].ordinal();
             p.initializeMarket(randomTechLevel);
+            p.getMarket().calculatePrices();
+            p.getMarket().calculateQuantities();
         }
     }
 
