@@ -171,9 +171,38 @@ public class BuyActivity extends AppCompatActivity {
             if (buy[i] > available[i]) {
                 testAvailable = false;
             }
-            System.out.println(buy[i]);
         }
 
+        if (testAvailable) {
+            int totalPrice = 0;
+            for (int i = 0; i < 10; i++) {
+                totalPrice += (buy[i] * prices[i]);
+            }
+            if (totalPrice <= player.getCredits()) {
+                player.setCredits(player.getCredits() - totalPrice);
+                for (int i = 0; i < 10; i++) {
+                    available[i]-= buy[i];
+                }
+
+            } else {
+                Toast.makeText(BuyActivity.this,
+                        "Cannot buy more than available", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            Toast.makeText(BuyActivity.this,
+                    "Cannot buy more than available", Toast.LENGTH_SHORT).show();
+        }
+
+        a1.setText(available[0] + "");
+        a2.setText(available[1] + "");
+        a3.setText(available[2] + "");
+        a4.setText(available[3] + "");
+        a5.setText(available[4] + "");
+        a6.setText(available[5] + "");
+        a7.setText(available[6] + "");
+        a8.setText(available[7] + "");
+        a9.setText(available[8] + "");
+        a10.setText(available[9] + "");
     }
 
     public void onBackPressed(View view) {

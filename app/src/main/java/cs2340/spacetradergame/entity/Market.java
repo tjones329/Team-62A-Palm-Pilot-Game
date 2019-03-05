@@ -62,6 +62,8 @@ public class Market {
     }
     public boolean canSell(MarketItem item) {return item.getMTLU() <= techLevel;}
 
-    public int[] getQuantities() {return quantities;};
-    public int[] getPrices() {return prices;};
+    public int[] getQuantities() {return quantities;}
+    public int[] getPrices() {return prices;}
+    public void setQuantities(int[] q) {quantities = q;}
+    public void setPrices(int[] p) {prices = p;}
 }
