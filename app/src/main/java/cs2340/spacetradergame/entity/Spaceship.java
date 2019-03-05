@@ -40,7 +40,17 @@ public abstract class Spaceship {
         health = h;
     }
     public LinkedList<MarketItem> getCargo() {return cargo;}
-    public void addCargo(MarketItem item) {cargo.add(item);}
+    public void addCargo(int[] items) {
+        for (MarketItem m : MarketItem.values()) {
+            for (int i = 0; i < 10; i++) {
+                if (m.ordinal() == i && (items[i] > 0)) {
+                    for (int j = 0; j < items[i]; j++) {
+                        cargo.add(m);
+                    }
+                }
+            }
+        }
+    }
     public boolean removeCargo(MarketItem item) {return cargo.remove(item);}
 
 }

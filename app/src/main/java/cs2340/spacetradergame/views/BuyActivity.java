@@ -10,11 +10,14 @@ import android.widget.Toast;
 
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.entity.Market;
+import cs2340.spacetradergame.entity.MarketItem;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
+import cs2340.spacetradergame.entity.Spaceship;
 import cs2340.spacetradergame.viewmodel.NewGameViewModel;
 
 public class BuyActivity extends AppCompatActivity {
+    Spaceship ship;
     Player player;
     Planet planet;
     Market market;
@@ -65,6 +68,7 @@ public class BuyActivity extends AppCompatActivity {
 
         player = NewGameViewModel.getPlayer();
         planet = NewGameViewModel.getCurrentPlanet();
+        ship = player.getShip();
         market = planet.getMarket();
 
         p1 = findViewById((R.id.p1));
@@ -152,25 +156,45 @@ public class BuyActivity extends AppCompatActivity {
     public void onBuyPressed(View view) {
         int[] buy = new int[10];
 
-        buy[0] = Integer.parseInt(q1.getText().toString());
-        buy[1] = Integer.parseInt(q2.getText().toString());
-        buy[2] = Integer.parseInt(q3.getText().toString());
-        buy[3] = Integer.parseInt(q4.getText().toString());
-        buy[4] = Integer.parseInt(q5.getText().toString());
-        buy[5] = Integer.parseInt(q6.getText().toString());
-        buy[6] = Integer.parseInt(q7.getText().toString());
-        buy[7] = Integer.parseInt(q8.getText().toString());
-        buy[8] = Integer.parseInt(q9.getText().toString());
-        buy[9] = Integer.parseInt(q10.getText().toString());
+        try {
+            buy[0] = Integer.parseInt(q1.getText().toString());
+            buy[1] = Integer.parseInt(q2.getText().toString());
+            buy[2] = Integer.parseInt(q3.getText().toString());
+            buy[3] = Integer.parseInt(q4.getText().toString());
+            buy[4] = Integer.parseInt(q5.getText().toString());
+            buy[5] = Integer.parseInt(q6.getText().toString());
+            buy[6] = Integer.parseInt(q7.getText().toString());
+            buy[7] = Integer.parseInt(q8.getText().toString());
+            buy[8] = Integer.parseInt(q9.getText().toString());
+            buy[9] = Integer.parseInt(q10.getText().toString());
+        } catch(NumberFormatException e) {
+            for (int i = 0; i < 10; i++) {
+                buy[i] = 0;
+            }
+            Toast.makeText(BuyActivity.this,
+                    "Make sure all your inputs are valid numbers!", Toast.LENGTH_SHORT).show();
+        }
 
         boolean testAvailable = true;
+        boolean testTechLevel = true;
         for (int i = 0; i < buy.length; i++) {
-            if (buy[i] > available[i]) {
+            if (prices[i] != 0 && (buy[i] > available[i])) {
                 testAvailable = false;
+            } else if (prices[i] == 0 && (buy[i] > available[i])) {
+                testTechLevel = false;
             }
         }
 
-        if (testAvailable) {
+        boolean testCapacity = true;
+        int totalItems = 0;
+        for (int i = 0; i < 10; i++) {
+            totalItems += buy[i];
+        }
+        if (ship.getCargo().size() + totalItems > ship.getCapacity()) {
+            testCapacity = false;
+        }
+
+        if (testAvailable && testTechLevel && testCapacity) {
             int totalPrice = 0;
             for (int i = 0; i < 10; i++) {
                 totalPrice += (buy[i] * prices[i]);
@@ -178,16 +202,25 @@ public class BuyActivity extends AppCompatActivity {
             if (totalPrice <= player.getCredits()) {
                 player.setCredits(player.getCredits() - totalPrice);
                 for (int i = 0; i < 10; i++) {
-                    available[i]-= buy[i];
+                    available[i] -= buy[i];
                 }
+                market.setQuantities(available);
 
+                ship.addCargo(buy);
             } else {
                 Toast.makeText(BuyActivity.this,
-                        "Cannot buy more than available", Toast.LENGTH_SHORT).show();
+                        "You don't have enough money!", Toast.LENGTH_SHORT).show();
             }
+
+        } else if (!testCapacity) {
+            Toast.makeText(BuyActivity.this,
+                    "You don't have enough cargo space", Toast.LENGTH_SHORT).show();
+        } else if (!testAvailable) {
+            Toast.makeText(BuyActivity.this,
+                    "You don't have enough cargo space", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(BuyActivity.this,
-                    "Tech level not high enough, or cannot buy more than available", Toast.LENGTH_SHORT).show();
+                    "Planet does not produce this item", Toast.LENGTH_SHORT).show();
         }
 
         a1.setText(available[0] + "");
