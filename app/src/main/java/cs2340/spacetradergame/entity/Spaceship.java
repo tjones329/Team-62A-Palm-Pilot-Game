@@ -1,19 +1,17 @@
 package cs2340.spacetradergame.entity;
 
-import java.util.LinkedList;
-
 public abstract class Spaceship {
     private int damage;
     private int speed;
-    private int capacity;
     private int health;
-    private LinkedList<MarketItem> cargo;
-    public Spaceship(int d, int s, int c, int h) {
-        damage = d;
-        speed = s;
-        capacity = c;
-        health = h;
-        cargo = new LinkedList<>();
+    //private LinkedList<MarketItem> cargo;
+    private CargoHold hold;
+    public Spaceship(int damage, int speed, int capacity, int health) {
+        this.damage = damage;
+        this.speed = speed;
+        this.health = health;
+        //cargo = new LinkedList<>();
+        this.hold = new CargoHold(capacity);
     }
     public int getDamage() {
         return damage;
@@ -22,7 +20,7 @@ public abstract class Spaceship {
         return speed;
     }
     public int getCapacity() {
-        return capacity;
+        return hold.getCapacity();
     }
     public int getHealth() {
         return health;
@@ -33,14 +31,15 @@ public abstract class Spaceship {
     public void setSpeed(int s) {
         speed = s;
     }
-    public void setCapacity(int c) {
-        capacity = c;
-    }
     public void setHealth(int h) {
         health = h;
     }
-    public LinkedList<MarketItem> getCargo() {return cargo;}
-    public void addCargo(int[] items) {
+    //public LinkedList<MarketItem> getCargo() {return cargo;}
+    public CargoHold getHold() {
+        return hold;
+    }
+    /*public boolean addCargo(int[] items) {
+        return hold.addCargo(items);
         for (MarketItem m : MarketItem.values()) {
             for (int i = 0; i < 10; i++) {
                 if (m.ordinal() == i && (items[i] > 0)) {
@@ -50,7 +49,8 @@ public abstract class Spaceship {
                 }
             }
         }
+    }*/
+    public boolean removeCargo(int[] items) {
+        return hold.removeCargo(items);
     }
-    public boolean removeCargo(MarketItem item) {return cargo.remove(item);}
-
 }

@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quartz">
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="11dp"
+        android:onClick="onClearPressed"
+        android:text="Clear"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBuySellBack"
+        app:layout_constraintTop_toTopOf="@+id/buttonTransact" />
+
+    <TextView
+        android:id="@+id/price0"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="85dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Water"
+        app:layout_constraintStart_toStartOf="@+id/Water" />
+
+    <TextView
+        android:id="@+id/price1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Furs"
+        app:layout_constraintStart_toStartOf="@+id/price0" />
+
+    <TextView
+        android:id="@+id/price2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Food"
+        app:layout_constraintStart_toStartOf="@+id/price1" />
+
+    <TextView
+        android:id="@+id/price3"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Ore"
+        app:layout_constraintStart_toStartOf="@+id/price2" />
+
+    <TextView
+        android:id="@+id/price4"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Games"
+        app:layout_constraintStart_toStartOf="@+id/price3" />
+
+    <TextView
+        android:id="@+id/price5"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Firearms"
+        app:layout_constraintStart_toStartOf="@+id/price4" />
+
+    <TextView
+        android:id="@+id/price6"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Medicine"
+        app:layout_constraintStart_toStartOf="@+id/price5" />
+
+    <TextView
+        android:id="@+id/price7"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Machines"
+        app:layout_constraintStart_toStartOf="@+id/price6" />
+
+    <TextView
+        android:id="@+id/price8"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Narcotics"
+        app:layout_constraintStart_toStartOf="@+id/price7" />
+
+    <TextView
+        android:id="@+id/price9"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/Robots"
+        app:layout_constraintStart_toStartOf="@+id/price8" />
+
+    <TextView
+        android:id="@+id/available0"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price0"
+        app:layout_constraintStart_toEndOf="@+id/price0" />
+
+    <TextView
+        android:id="@+id/available1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price1"
+        app:layout_constraintStart_toStartOf="@+id/available0" />
+
+    <TextView
+        android:id="@+id/available2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price2"
+        app:layout_constraintStart_toStartOf="@+id/available1" />
+
+    <TextView
+        android:id="@+id/available3"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price3"
+        app:layout_constraintStart_toStartOf="@+id/available2" />
+
+    <TextView
+        android:id="@+id/available4"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price4"
+        app:layout_constraintStart_toStartOf="@+id/available3" />
+
+    <TextView
+        android:id="@+id/available5"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price5"
+        app:layout_constraintStart_toStartOf="@+id/available4" />
+
+    <TextView
+        android:id="@+id/available6"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price6"
+        app:layout_constraintStart_toStartOf="@+id/available5" />
+
+    <TextView
+        android:id="@+id/available7"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price7"
+        app:layout_constraintStart_toStartOf="@+id/available6" />
+
+    <TextView
+        android:id="@+id/available8"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price8"
+        app:layout_constraintStart_toStartOf="@+id/available7" />
+
+    <TextView
+        android:id="@+id/available9"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/price9"
+        app:layout_constraintStart_toStartOf="@+id/available8" />
+
+    <TextView
+        android:id="@+id/hold0"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="30dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available0"
+        app:layout_constraintStart_toEndOf="@+id/available0" />
+
+    <TextView
+        android:id="@+id/hold1"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available1"
+        app:layout_constraintStart_toStartOf="@+id/hold0" />
+
+    <TextView
+        android:id="@+id/hold2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available2"
+        app:layout_constraintStart_toStartOf="@+id/hold1" />
+
+    <TextView
+        android:id="@+id/hold3"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available3"
+        app:layout_constraintStart_toStartOf="@+id/hold2" />
+
+    <TextView
+        android:id="@+id/hold4"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available4"
+        app:layout_constraintStart_toStartOf="@+id/hold3" />
+
+    <TextView
+        android:id="@+id/hold5"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available5"
+        app:layout_constraintStart_toStartOf="@+id/hold4" />
+
+    <TextView
+        android:id="@+id/hold6"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available6"
+        app:layout_constraintStart_toStartOf="@+id/hold5" />
+
+    <TextView
+        android:id="@+id/hold7"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available7"
+        app:layout_constraintStart_toStartOf="@+id/hold6" />
+
+    <TextView
+        android:id="@+id/hold8"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available8"
+        app:layout_constraintStart_toStartOf="@+id/hold7" />
+
+    <TextView
+        android:id="@+id/hold9"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="9999"
+        android:textColor="#AFAFAF"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available9"
+        app:layout_constraintStart_toStartOf="@+id/hold8" />
+
+    <EditText
+        android:id="@+id/quantity0"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="60dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available0"
+        app:layout_constraintStart_toEndOf="@+id/hold0"
+        tools:text="0" />
+
+    <EditText
+        android:id="@+id/quantity1"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available1"
+        app:layout_constraintStart_toStartOf="@+id/quantity0"
+        tools:text="0" />
+
+    <EditText
+        android:id="@+id/quantity2"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available2"
+        app:layout_constraintStart_toStartOf="@+id/quantity1"
+        tools:text="0" />
+
+    <EditText
+        android:id="@+id/quantity3"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available3"
+        app:layout_constraintStart_toStartOf="@+id/quantity2"
+        tools:text="0" />
+
+    <EditText
+        android:id="@+id/quantity4"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available4"
+        app:layout_constraintStart_toStartOf="@+id/quantity3" />
+
+    <EditText
+        android:id="@+id/quantity5"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available5"
+        app:layout_constraintStart_toStartOf="@+id/quantity4" />
+
+    <EditText
+        android:id="@+id/quantity6"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available6"
+        app:layout_constraintStart_toStartOf="@+id/quantity5" />
+
+    <EditText
+        android:id="@+id/quantity7"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available7"
+        app:layout_constraintStart_toStartOf="@+id/quantity6" />
+
+    <EditText
+        android:id="@+id/quantity8"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available8"
+        app:layout_constraintStart_toStartOf="@+id/quantity7" />
+
+    <EditText
+        android:id="@+id/quantity9"
+        android:layout_width="40dp"
+        android:layout_height="36dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/available9"
+        app:layout_constraintStart_toStartOf="@+id/quantity8" />
+
+    <ImageButton
+        android:id="@+id/subtract0"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract0Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity0"
+        app:layout_constraintEnd_toStartOf="@+id/quantity0"
+        app:layout_constraintTop_toTopOf="@+id/quantity0"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract1Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity1"
+        app:layout_constraintEnd_toStartOf="@+id/quantity1"
+        app:layout_constraintTop_toTopOf="@+id/quantity1"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract2Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity2"
+        app:layout_constraintEnd_toStartOf="@+id/quantity2"
+        app:layout_constraintTop_toTopOf="@+id/quantity2"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract3Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity3"
+        app:layout_constraintEnd_toStartOf="@+id/quantity3"
+        app:layout_constraintTop_toTopOf="@+id/quantity3"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract4"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract4Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity4"
+        app:layout_constraintEnd_toStartOf="@+id/quantity4"
+        app:layout_constraintTop_toTopOf="@+id/quantity4"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract5Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity5"
+        app:layout_constraintEnd_toStartOf="@+id/quantity5"
+        app:layout_constraintTop_toTopOf="@+id/quantity5"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract6"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract6Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity6"
+        app:layout_constraintEnd_toStartOf="@+id/quantity6"
+        app:layout_constraintTop_toTopOf="@+id/quantity6"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract7"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract7Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity7"
+        app:layout_constraintEnd_toStartOf="@+id/quantity7"
+        app:layout_constraintTop_toTopOf="@+id/quantity7"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract8"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract8Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity8"
+        app:layout_constraintEnd_toStartOf="@+id/quantity8"
+        app:layout_constraintTop_toTopOf="@+id/quantity8"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/subtract9"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@null"
+        android:onClick="onSubtract9Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity9"
+        app:layout_constraintEnd_toStartOf="@+id/quantity9"
+        app:layout_constraintTop_toTopOf="@+id/quantity9"
+        app:srcCompat="@drawable/remove_18dp" />
+
+    <ImageButton
+        android:id="@+id/add0"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd0Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity0"
+        app:layout_constraintStart_toEndOf="@+id/quantity0"
+        app:layout_constraintTop_toTopOf="@+id/quantity0"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd1Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity1"
+        app:layout_constraintStart_toEndOf="@+id/quantity1"
+        app:layout_constraintTop_toTopOf="@+id/quantity1"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd2Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity2"
+        app:layout_constraintStart_toEndOf="@+id/quantity2"
+        app:layout_constraintTop_toTopOf="@+id/quantity2"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd3Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity3"
+        app:layout_constraintStart_toEndOf="@+id/quantity3"
+        app:layout_constraintTop_toTopOf="@+id/quantity3"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add4"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd4Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity4"
+        app:layout_constraintStart_toEndOf="@+id/quantity4"
+        app:layout_constraintTop_toTopOf="@+id/quantity4"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd5Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity5"
+        app:layout_constraintStart_toEndOf="@+id/quantity5"
+        app:layout_constraintTop_toTopOf="@+id/quantity5"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add6"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd6Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity6"
+        app:layout_constraintStart_toEndOf="@+id/quantity6"
+        app:layout_constraintTop_toTopOf="@+id/quantity6"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add7"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd7Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity7"
+        app:layout_constraintStart_toEndOf="@+id/quantity7"
+        app:layout_constraintTop_toTopOf="@+id/quantity7"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add8"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd8Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity8"
+        app:layout_constraintStart_toEndOf="@+id/quantity8"
+        app:layout_constraintTop_toTopOf="@+id/quantity8"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <ImageButton
+        android:id="@+id/add9"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:background="@null"
+        android:onClick="onAdd9Pressed"
+        app:layout_constraintBottom_toBottomOf="@+id/quantity9"
+        app:layout_constraintStart_toEndOf="@+id/quantity9"
+        app:layout_constraintTop_toTopOf="@+id/quantity9"
+        app:srcCompat="@drawable/add_18dp" />
+
+    <Button
+        android:id="@+id/buttonTransact"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="11dp"
+        android:onClick="onTransactPressed"
+        android:text="Buy"
+        app:layout_constraintStart_toEndOf="@+id/toggleBuySell"
+        app:layout_constraintTop_toTopOf="@+id/toggleBuySell" />
+
+    <Button
+        android:id="@+id/toggleBuySell"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="598dp"
+        android:onClick="onTogglePressed"
+        android:text="Buy/Sell"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Water"
+        android:layout_width="101dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="147dp"
+        android:text="Water: "
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Furs"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Furs: "
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Water"
+        app:layout_constraintTop_toTopOf="@+id/Water" />
+
+    <TextView
+        android:id="@+id/Food"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Food:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Furs"
+        app:layout_constraintTop_toTopOf="@+id/Furs" />
+
+    <TextView
+        android:id="@+id/Ore"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Ore:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Food"
+        app:layout_constraintTop_toTopOf="@+id/Food" />
+
+    <TextView
+        android:id="@+id/Games"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Games:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Ore"
+        app:layout_constraintTop_toTopOf="@+id/Ore" />
+
+    <TextView
+        android:id="@+id/Firearms"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="48dp"
+        android:text="Firearms:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Games"
+        app:layout_constraintTop_toTopOf="@+id/Games" />
+
+    <TextView
+        android:id="@+id/Medicine"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Medicine: "
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Firearms"
+        app:layout_constraintTop_toTopOf="@+id/Firearms" />
+
+    <TextView
+        android:id="@+id/Machines"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Machines:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Medicine"
+        app:layout_constraintTop_toTopOf="@+id/Medicine" />
+
+    <TextView
+        android:id="@+id/Narcotics"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Narcotics:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Machines"
+        app:layout_constraintTop_toTopOf="@+id/Machines" />
+
+    <TextView
+        android:id="@+id/Robots"
+        android:layout_width="80dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="45dp"
+        android:text="Robots:"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="@+id/Narcotics"
+        app:layout_constraintTop_toTopOf="@+id/Narcotics" />
+
+    <TextView
+        android:id="@+id/textBuyGoods"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:text="Trade Goods"
+        android:textColor="#AFAFAF"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textCurrentBalance"
+        android:layout_width="236dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="64dp"
+        android:text="Current Balance: "
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="Price"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/price0"
+        app:layout_constraintStart_toStartOf="@+id/price0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAvailable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/available0"
+        app:layout_constraintStart_toStartOf="@+id/available0"
+        app:layout_constraintTop_toTopOf="@+id/textPrice" />
+
+    <TextView
+        android:id="@+id/textHold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hold"
+        android:textColor="#AFAFAF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/hold0"
+        app:layout_constraintStart_toStartOf="@+id/hold0"
+        app:layout_constraintTop_toTopOf="@+id/textAvailable" />
+
+    <Button
+        android:id="@+id/buttonBuySellBack"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="13dp"
+        android:onClick="onBackPressed"
+        android:text="Back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonTransact" />
+
+    <TextView
+        android:id="@+id/textQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity"
+        android:textColor="#AFAFAF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/quantity0"
+        app:layout_constraintStart_toStartOf="@+id/quantity0"
+        app:layout_constraintTop_toTopOf="@+id/textAvailable" />
+
+</android.support.constraint.ConstraintLayout>
