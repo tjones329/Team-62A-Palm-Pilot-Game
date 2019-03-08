@@ -13,18 +13,16 @@ public class CargoHold {
         this.capacity = capacity;
     }
 
-    public boolean addCargo(int[] items) {
+    public void addCargo(int[] items) {
         for (int i = 0; i < this.items.length; ++i) {
             this.items[i] += items[i];
         }
-        return true;
     }
 
-    public boolean removeCargo(int[] items) {
+    public void removeCargo(int[] items) {
         for (int i = 0; i < this.items.length; ++i) {
             this.items[i] -= items[i];
         }
-        return true;
     }
 
     public boolean hasItemNum(int itemId, int quantity) {

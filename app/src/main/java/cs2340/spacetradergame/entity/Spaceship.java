@@ -50,7 +50,7 @@ public abstract class Spaceship {
             }
         }
     }*/
-    public boolean removeCargo(int[] items) {
-        return hold.removeCargo(items);
+    public void removeCargo(int[] items) {
+        hold.removeCargo(items);
     }
 }
