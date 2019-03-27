@@ -1,10 +1,12 @@
 package cs2340.spacetradergame.entity;
 
+import cs2340.spacetradergame.model.Point;
+
 public abstract class Spaceship {
     private int damage;
     private int speed;
     private int health;
-    //private LinkedList<MarketItem> cargo;
+    private int hyperdrive; // number of parsecs the ship can travel
     private CargoHold hold;
     public Spaceship(int damage, int speed, int capacity, int health) {
         this.damage = damage;
@@ -33,6 +35,9 @@ public abstract class Spaceship {
     }
     public void setHealth(int h) {
         health = h;
+    }
+    public boolean canJump(Point a, Point b) {
+        return hyperdrive > Point.distance(a, b);
     }
     //public LinkedList<MarketItem> getCargo() {return cargo;}
     public CargoHold getHold() {

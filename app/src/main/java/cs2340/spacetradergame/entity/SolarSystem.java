@@ -3,7 +3,6 @@ package cs2340.spacetradergame.entity;
 import android.util.Log;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 import cs2340.spacetradergame.model.Point;
@@ -16,16 +15,15 @@ public class SolarSystem {
     }
     public enum RandomEncounter { // Solar systems are governed, and thus enforced on a system-wide level
         MINIMAL, FEW, SOME, MANY, SWARMS;
-        public static RandomEncounter[] police = RandomEncounter.values();
-        public static RandomEncounter[] pirates = RandomEncounter.values();
+        public static RandomEncounter[] values = RandomEncounter.values();
     }
 
     private String name;
     private Point pos;
 
-    private RandomEncounter pirates;
-    private RandomEncounter police;
     private Government government;
+    private RandomEncounter police;
+    private RandomEncounter pirates;
     public Set<Planet> planets;
 
     public SolarSystem(String name) {
@@ -37,8 +35,8 @@ public class SolarSystem {
     public void startSystem(String[] planetNames) {
         //we don't want techLevel to be system wide, it should vary for each planet. Commented out
         //techLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)];
-        pirates = RandomEncounter.pirates[RandomMethods.gaussian(RandomEncounter.pirates.length - 1)];
-        police = RandomEncounter.police[RandomMethods.gaussian(RandomEncounter.police.length - 1)];
+        pirates = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
+        police = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
         government = Government.governments[RandomMethods.nextInt(Government.governments.length)];
 
         planets = new HashSet<>();
@@ -90,6 +88,18 @@ public class SolarSystem {
 
     public String getName() {
         return name;
+    }
+
+    public Government getGovernment() {
+        return government;
+    }
+
+    public RandomEncounter getPolice() {
+        return police;
+    }
+
+    public RandomEncounter getPirates() {
+        return pirates;
     }
 
     public Point getPos() {

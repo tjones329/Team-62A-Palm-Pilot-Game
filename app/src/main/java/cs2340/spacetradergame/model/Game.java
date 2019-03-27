@@ -6,7 +6,6 @@ import cs2340.spacetradergame.entity.Gnat;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.entity.SolarSystem;
-import cs2340.spacetradergame.entity.Spaceship;
 import cs2340.spacetradergame.entity.Universe;
 
 public class Game {
@@ -49,6 +48,14 @@ public class Game {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public void setCurrentSystem(SolarSystem system) {
+        currentSystem = system;
+    }
+
+    public void setCurrentPlanet(Planet planet) {
+        currentPlanet = planet;
     }
 
     public void setDifficulty(int difficulty) {

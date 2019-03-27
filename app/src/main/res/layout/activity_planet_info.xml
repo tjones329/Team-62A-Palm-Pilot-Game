@@ -7,96 +7,219 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textDisplayTechLevel"
-        android:layout_width="227dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="376dp"
-        android:text="TextView"
-        android:textSize="48sp"
+        android:id="@+id/textPlanetInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="8dp"
+        android:text="Planet Info"
+        android:textAlignment="center"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textPlanetInfo"
-        android:layout_width="188dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="120dp"
+        android:id="@+id/textSystemInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:text="Planet Info"
+        android:layout_marginEnd="8dp"
+        android:text="System Info"
+        android:textAlignment="center"
         android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textResourcesLabel" />
+
+    <TextView
+        android:id="@+id/textPlanetNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Name:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPlanetInfo" />
 
     <TextView
         android:id="@+id/textPlanetName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="96dp"
-        android:text="Planet Name: "
+        android:layout_marginEnd="24dp"
+        android:text="name"
         android:textColor="#AFAFAF"
         android:textSize="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textPlanetNameLabel" />
 
     <TextView
-        android:id="@+id/textGovernment"
-        android:layout_width="148dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="120dp"
+        android:id="@+id/textGovernmentLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Government: "
         android:textColor="#AFAFAF"
-        android:textSize="24dp"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textPlanetName" />
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textPlanetNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textSystemNameLabel" />
+
+    <TextView
+        android:id="@+id/textSystemNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="System Name: "
+        android:textColor="#AFAFAF"
+
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textPlanetNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textSystemInfo" />
+
+    <TextView
+        android:id="@+id/textPoliceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Police:"
+
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textGovernmentLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textGovernmentLabel" />
+
+    <TextView
+        android:id="@+id/textPiratesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Pirates:"
+
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textPoliceLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textPoliceLabel" />
+
+    <TextView
+        android:id="@+id/textTechLevelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Tech Level: "
+
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textPlanetNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textPlanetNameLabel" />
+
+    <TextView
+        android:id="@+id/textResourcesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+        android:text="Resources:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textTechLevelLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textTechLevelLabel" />
 
     <TextView
         android:id="@+id/textTechLevel"
-        android:layout_width="148dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="116dp"
-        android:text="Tech Level: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="techlevel "
         android:textColor="#AFAFAF"
         android:textSize="24dp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textGovernment" />
-
-    <TextView
-        android:id="@+id/textDisplayPlanetName"
-        android:layout_width="230dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="144dp"
-        android:text="TextView"
-        android:textSize="48sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textPlanetName"
+        app:layout_constraintTop_toTopOf="@+id/textTechLevelLabel" />
 
     <TextView
-        android:id="@+id/textDisplayGovernment"
-        android:layout_width="227dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="264dp"
-        android:text="TextView"
-        android:textSize="48sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/textResources"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="resources"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textTechLevel"
+        app:layout_constraintTop_toTopOf="@+id/textResourcesLabel" />
+
+    <TextView
+        android:id="@+id/textGovernment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="government"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textSystemName"
+        app:layout_constraintTop_toTopOf="@+id/textGovernmentLabel" />
+
+    <TextView
+        android:id="@+id/textSystemName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="systemname"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textResources"
+        app:layout_constraintTop_toTopOf="@+id/textSystemNameLabel" />
+
+    <TextView
+        android:id="@+id/textPolice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="police"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textGovernment"
+        app:layout_constraintTop_toTopOf="@+id/textPoliceLabel" />
+
+    <TextView
+        android:id="@+id/textPirates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="pirates"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textPolice"
+        app:layout_constraintTop_toTopOf="@+id/textPiratesLabel" />
 
     <Button
-        android:id="@+id/buttonBuyFromPlanet"
+        android:id="@+id/buttonTrade"
         android:layout_width="100dp"
         android:layout_height="60dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="588dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="onTradePressed"
+        android:text="Trade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTravel"
+        app:layout_constraintStart_toEndOf="@+id/buttonPlayer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonPlayer"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="588dp"
         android:layout_marginBottom="8dp"
-        android:onClick="onMarketPressed"
-        android:text="Buy/Sell"
+        android:onClick="onPlayerPressed"
+        android:text="Player"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -107,8 +230,9 @@
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="588dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="8dp"
+        android:onClick="onTravelPressed"
         android:text="Travel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
