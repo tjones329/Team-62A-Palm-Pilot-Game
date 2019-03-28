@@ -106,6 +106,10 @@ public class SolarSystem {
         return pos;
     }
 
+    public Set<Planet> getPlanets() {
+        return planets;
+    }
+
     public void logSystem() {
         Log.d("Solar System", "Name: " + name
                 + " Position: " + pos.toString()

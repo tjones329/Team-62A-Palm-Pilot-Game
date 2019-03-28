@@ -13,6 +13,7 @@
         <activity android:name=".views.TravelSolarSystemActivity" />
         <activity android:name=".views.PlanetActivity" />
         <activity android:name=".views.NewGameActivity" />
+        <activity android:name=".views.TravelPlanetActivity" />
         <activity android:name=".views.TradeActivity" />
         <activity android:name=".views.MainActivity">
             <intent-filter>

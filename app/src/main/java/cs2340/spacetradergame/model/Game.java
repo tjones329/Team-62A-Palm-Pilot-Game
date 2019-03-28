@@ -2,6 +2,8 @@ package cs2340.spacetradergame.model;
 
 import android.util.Log;
 
+import java.util.Set;
+
 import cs2340.spacetradergame.entity.Gnat;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
@@ -48,6 +50,14 @@ public class Game {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public Set<Planet> getPlanets() {
+        return currentSystem.getPlanets();
+    }
+
+    public Set<SolarSystem> getSystems() {
+        return universe.getSystems();
     }
 
     public void setCurrentSystem(SolarSystem system) {

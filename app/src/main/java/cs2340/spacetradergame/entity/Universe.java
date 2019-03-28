@@ -149,6 +149,10 @@ public class Universe {
         return systems.iterator().next();
     }
 
+    public Set<SolarSystem> getSystems() {
+        return systems;
+    }
+
     //For the purposes of m7, we return a random planet because we can't navigate different planets
     /*public Planet getCurrentPlanet() {
         //apparently you can't directly access an index of a set, so I had to do a jank
