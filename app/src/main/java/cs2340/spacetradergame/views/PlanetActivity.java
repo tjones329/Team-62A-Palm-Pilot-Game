@@ -42,7 +42,7 @@ public class PlanetActivity extends AppCompatActivity {
     }
 
     public void onTravelPressed(View view) {
-        Intent intent = new Intent(PlanetActivity.this, TradeActivity.class);
+        Intent intent = new Intent(PlanetActivity.this, TravelSolarSystemActivity.class);
         startActivity(intent);
     }
 }

@@ -4,6 +4,270 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/quartz"
     tools:context=".views.PlayerActivity">
+
+    <TextView
+        android:id="@+id/textPlanetInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Player Info"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textShipInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Ship Info"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textEngineerLabel" />
+
+    <TextView
+        android:id="@+id/textPlayerNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:text="Name:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textPlanetInfo" />
+
+    <TextView
+        android:id="@+id/textPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:text="name"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textPlayerNameLabel" />
+
+    <TextView
+        android:id="@+id/textCreditsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Credits:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textPlayerNameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textPlayerNameLabel" />
+
+    <TextView
+        android:id="@+id/textCredits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="credits"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textPlayerName"
+        app:layout_constraintTop_toTopOf="@+id/textCreditsLabel" />
+
+    <TextView
+        android:id="@+id/textPilotLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Pilot points:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textCreditsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textCreditsLabel" />
+
+    <TextView
+        android:id="@+id/textPilot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pilot"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textCredits"
+        app:layout_constraintTop_toTopOf="@+id/textPilotLabel" />
+
+    <TextView
+        android:id="@+id/textFighterLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Fighter points:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textPilotLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textPilotLabel" />
+
+    <TextView
+        android:id="@+id/textFighter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fighter"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textPilot"
+        app:layout_constraintTop_toTopOf="@+id/textFighterLabel" />
+
+    <TextView
+        android:id="@+id/textTraderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Trader points:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textFighterLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textFighterLabel" />
+
+    <TextView
+        android:id="@+id/textTrader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="trader"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textFighter"
+        app:layout_constraintTop_toTopOf="@+id/textTraderLabel" />
+
+    <TextView
+        android:id="@+id/textEngineerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Engineer points:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textTraderLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textTraderLabel" />
+
+    <TextView
+        android:id="@+id/textHealthLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Health:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textEngineerLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textShipInfo" />
+
+    <TextView
+        android:id="@+id/textSpeedLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Speed:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textHealthLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textHealthLabel" />
+
+    <TextView
+        android:id="@+id/textHyperdriveLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Hyperdrive Range:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textSpeedLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textSpeedLabel" />
+
+    <TextView
+        android:id="@+id/textCapacityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Capacity:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textHyperdriveLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textHyperdriveLabel" />
+
+    <TextView
+        android:id="@+id/textDamageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Damage:"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/textCapacityLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textCapacityLabel" />
+
+    <TextView
+        android:id="@+id/textEngineer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="engineer"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textFighter"
+        app:layout_constraintTop_toTopOf="@+id/textEngineerLabel" />
+
+    <TextView
+        android:id="@+id/textHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="health"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textEngineer"
+        app:layout_constraintTop_toTopOf="@+id/textHealthLabel" />
+
+    <TextView
+        android:id="@+id/textSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="speed"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textHealth"
+        app:layout_constraintTop_toTopOf="@+id/textSpeedLabel" />
+
+    <TextView
+        android:id="@+id/textHyperdrive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hyperdrive"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textSpeed"
+        app:layout_constraintTop_toTopOf="@+id/textHyperdriveLabel" />
+
+    <TextView
+        android:id="@+id/textCapacity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="capacity"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textHyperdrive"
+        app:layout_constraintTop_toTopOf="@+id/textCapacityLabel" />
+
+    <TextView
+        android:id="@+id/textDamage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="damage"
+        android:textColor="#AFAFAF"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/textCapacity"
+        app:layout_constraintTop_toTopOf="@+id/textDamageLabel" />
 
 </android.support.constraint.ConstraintLayout>

@@ -8,12 +8,12 @@
 
     <Button
         android:id="@+id/buttonClear"
-        android:layout_width="88dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="11dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="30dp"
         android:onClick="onClearPressed"
         android:text="Clear"
-        app:layout_constraintEnd_toStartOf="@+id/buttonBuySellBack"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/buttonTransact" />
 
     <TextView
@@ -111,7 +111,7 @@
         android:id="@+id/available0"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="45dp"
         android:text="9999"
         android:textColor="#AFAFAF"
         app:layout_constraintBaseline_toBaselineOf="@+id/price0"
@@ -202,7 +202,7 @@
         android:id="@+id/hold0"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="45dp"
         android:text="9999"
         android:textColor="#AFAFAF"
         app:layout_constraintBaseline_toBaselineOf="@+id/available0"
@@ -662,24 +662,26 @@
 
     <Button
         android:id="@+id/buttonTransact"
-        android:layout_width="88dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="11dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:onClick="onTransactPressed"
         android:text="Buy"
+        app:layout_constraintEnd_toStartOf="@+id/buttonClear"
         app:layout_constraintStart_toEndOf="@+id/toggleBuySell"
         app:layout_constraintTop_toTopOf="@+id/toggleBuySell" />
 
     <Button
         android:id="@+id/toggleBuySell"
-        android:layout_width="88dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="598dp"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="12dp"
         android:onClick="onTogglePressed"
         android:text="Buy/Sell"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/Water"
@@ -851,16 +853,6 @@
         app:layout_constraintEnd_toEndOf="@+id/hold0"
         app:layout_constraintStart_toStartOf="@+id/hold0"
         app:layout_constraintTop_toTopOf="@+id/textAvailable" />
-
-    <Button
-        android:id="@+id/buttonBuySellBack"
-        android:layout_width="88dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="13dp"
-        android:onClick="onBackPressed"
-        android:text="Back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/buttonTransact" />
 
     <TextView
         android:id="@+id/textQuantity"

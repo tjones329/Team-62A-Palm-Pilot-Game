@@ -3,29 +3,32 @@ package cs2340.spacetradergame.entity;
 import cs2340.spacetradergame.model.Point;
 
 public abstract class Spaceship {
-    private int damage;
-    private int speed;
     private int health;
+    private int speed;
     private int hyperdrive; // number of parsecs the ship can travel
+    private int damage;
     private CargoHold hold;
-    public Spaceship(int damage, int speed, int capacity, int health) {
-        this.damage = damage;
-        this.speed = speed;
+    public Spaceship(int health, int speed, int hyperdrive, int damage, int capacity) {
         this.health = health;
-        //cargo = new LinkedList<>();
+        this.speed = speed;
+        this.hyperdrive = hyperdrive;
+        this.damage = damage;
         this.hold = new CargoHold(capacity);
     }
-    public int getDamage() {
-        return damage;
+    public int getHealth() {
+        return health;
     }
     public int getSpeed() {
         return speed;
     }
+    public int getHyperdrive() {
+        return hyperdrive;
+    }
+    public int getDamage() {
+        return damage;
+    }
     public int getCapacity() {
         return hold.getCapacity();
-    }
-    public int getHealth() {
-        return health;
     }
     public void setDamage(int d) {
         damage = d;
