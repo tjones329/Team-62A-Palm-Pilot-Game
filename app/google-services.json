@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "375945330789",
+    "firebase_url": "https://space-trader-a8452.firebaseio.com",
+    "project_id": "space-trader-a8452",
+    "storage_bucket": "space-trader-a8452.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375945330789:android:c91cb916124dee3c",
+        "android_client_info": {
+          "package_name": "cs2340.spacetradergame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "375945330789-ph8lgotgoht3pr6fee7c9t9442a21hm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBN8CNT_nSMrouXA15hH4mXzymhaFCdoMw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
