@@ -7,18 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Set;
 
 import cs2340.spacetradergame.R;
-import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.SolarSystem;
-import cs2340.spacetradergame.viewmodel.PlanetViewModel;
+import cs2340.spacetradergame.viewmodel.TravelSolarSystemViewModel;
 
 public class TravelSolarSystemActivity extends AppCompatActivity {
 
     private Spinner solarSpinner;
-    private PlanetViewModel viewModel;
+    private TravelSolarSystemViewModel viewModel;
     private Set<SolarSystem> systems;
 
     @Override
@@ -26,7 +26,7 @@ public class TravelSolarSystemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_solar_system);
 
-        viewModel = ViewModelProviders.of(this).get(PlanetViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(TravelSolarSystemViewModel.class);
 
         solarSpinner = findViewById(R.id.solarSpinner);
 
@@ -46,14 +46,20 @@ public class TravelSolarSystemActivity extends AppCompatActivity {
     }
 
     public void onTravelSolarSystem(View view) {
-        String selectedSystem = (String) solarSpinner.getSelectedItem();
-        for (SolarSystem system : systems) {
-            if (system.getName().equals(selectedSystem)) {
-                viewModel.setCurrentSystem(system);
-                break;
+        if (!viewModel.hasFuel()) {
+            Toast.makeText(TravelSolarSystemActivity.this,
+                    "Not enough fuel", Toast.LENGTH_SHORT).show();
+        } else {
+            viewModel.travel();
+            String selectedSystem = (String) solarSpinner.getSelectedItem();
+            for (SolarSystem system : systems) {
+                if (system.getName().equals(selectedSystem)) {
+                    viewModel.setCurrentSystem(system);
+                    break;
+                }
             }
+            Intent intent = new Intent(TravelSolarSystemActivity.this, TravelPlanetActivity.class);
+            startActivity(intent);
         }
-        Intent intent = new Intent(TravelSolarSystemActivity.this, TravelPlanetActivity.class);
-        startActivity(intent);
     }
 }

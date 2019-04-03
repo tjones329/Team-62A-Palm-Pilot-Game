@@ -7,17 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Set;
 
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.viewmodel.PlanetViewModel;
+import cs2340.spacetradergame.viewmodel.TravelPlanetViewModel;
 
 public class TravelPlanetActivity extends AppCompatActivity {
 
     private Spinner planetSpinner;
-    private PlanetViewModel viewModel;
+    private TravelPlanetViewModel viewModel;
     private Set<Planet> planets;
 
     @Override
@@ -25,7 +27,7 @@ public class TravelPlanetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_travel_planet);
 
-        viewModel = ViewModelProviders.of(this).get(PlanetViewModel.class);
+        viewModel = ViewModelProviders.of(this).get(TravelPlanetViewModel.class);
 
         planetSpinner = findViewById(R.id.planetSpinner);
 

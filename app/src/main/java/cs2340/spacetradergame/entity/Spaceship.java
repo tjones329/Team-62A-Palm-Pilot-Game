@@ -1,16 +1,20 @@
 package cs2340.spacetradergame.entity;
 
+import android.util.Log;
+
 import cs2340.spacetradergame.model.Point;
 
 public abstract class Spaceship {
     private int health;
     private int speed;
     private int hyperdrive; // number of parsecs the ship can travel
+    private int fuel;
     private int damage;
     private CargoHold hold;
-    public Spaceship(int health, int speed, int hyperdrive, int damage, int capacity) {
+    public Spaceship(int health, int speed, int fuel, int hyperdrive, int damage, int capacity) {
         this.health = health;
         this.speed = speed;
+        this.fuel = fuel;
         this.hyperdrive = hyperdrive;
         this.damage = damage;
         this.hold = new CargoHold(capacity);
@@ -20,6 +24,9 @@ public abstract class Spaceship {
     }
     public int getSpeed() {
         return speed;
+    }
+    public int getFuel() {
+        return fuel;
     }
     public int getHyperdrive() {
         return hyperdrive;
@@ -32,6 +39,10 @@ public abstract class Spaceship {
     }
     public void setDamage(int d) {
         damage = d;
+    }
+    public void decrementFuel() {
+        --fuel;
+        Log.d("Fuel", String.valueOf(fuel));
     }
     public void setSpeed(int s) {
         speed = s;
