@@ -5,7 +5,7 @@ import cs2340.spacetradergame.model.Game;
 public class Player {
 
     private String name;
-    private int credits = 1000;
+    private int credits = Game.STARTING_CREDITS;
     private int pilotPoints;
     private int fighterPoints;
     private int traderPoints;
@@ -22,6 +22,13 @@ public class Player {
 
     public Player(){
         this("Player", Game.MAX_SKILL_POINTS, 0, 0, 0);
+    }
+
+    public void bought(int amount) {
+        credits -= amount;
+    }
+    public void sold(int amount) {
+        credits += amount;
     }
 
     public String getName() {
@@ -50,6 +57,10 @@ public class Player {
 
     public Spaceship getShip() {
         return ship;
+    }
+
+    public CargoHold getHold() {
+        return ship.getHold();
     }
 
     public void setName(String name) {

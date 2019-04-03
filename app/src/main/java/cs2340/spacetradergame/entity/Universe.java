@@ -3,8 +3,9 @@ package cs2340.spacetradergame.entity;
 import android.util.Log;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
+
+import cs2340.spacetradergame.model.RandomMethods;
 
 public class Universe {
 
@@ -110,35 +111,50 @@ public class Universe {
                 return out;
             }
         }
-        Random random = new Random();
-        int systemNum = 22 + random.nextInt(5);
+        int systemNum = 22 + RandomMethods.nextInt(5);
         PlanetList planetList = new PlanetList();
         for (int i = systemNum - 1; i >= 0; --i) {
-            String name = ((char)('A' + random.nextInt(26)))
-                    + String.valueOf(random.nextInt(10))
-                    + String.valueOf(random.nextInt(10))
-                    + String.valueOf(random.nextInt(10))
-                    + String.valueOf(random.nextInt(10))
+            String name = ((char)('A' + RandomMethods.nextInt(26)))
+                    + String.valueOf(RandomMethods.nextInt(10))
+                    + String.valueOf(RandomMethods.nextInt(10))
+                    + String.valueOf(RandomMethods.nextInt(10))
+                    + String.valueOf(RandomMethods.nextInt(10))
                     + "-"
-                    + ((char)('A' + random.nextInt(26)));
+                    + ((char)('A' + RandomMethods.nextInt(26)));
 
             SolarSystem curr;
             boolean added;
             do {
-                curr = new SolarSystem(name, random);
+                curr = new SolarSystem(name);
                 added = systems.add(curr);
             } while (!added);
-            int planetNum = Math.min(1 + random.nextInt(8), planetList.size - i); // leave enough planet names for at least one per remaining system
+            int planetNum = Math.min(1 + RandomMethods.nextInt(8), planetList.size - i); // leave enough planet names for at least one per remaining system
             String[] planets = new String[planetNum];
             for (int j = 0; j < planets.length; ++j) {
-                planets[j] = planetList.remove(random.nextInt(planetList.size));
+                planets[j] = planetList.remove(RandomMethods.nextInt(planetList.size));
             }
-            curr.startSystem(planets, random);
+            curr.startSystem(planets);
         }
     }
 
+    public SolarSystem getRandomSystem() {
+        int systemNum = RandomMethods.nextInt(systems.size());
+        int i = 0;
+        for (SolarSystem s : systems) {
+            if (i == systemNum) {
+                return s;
+            }
+            ++i;
+        }
+        return systems.iterator().next();
+    }
+
+    public Set<SolarSystem> getSystems() {
+        return systems;
+    }
+
     //For the purposes of m7, we return a random planet because we can't navigate different planets
-    public Planet getCurrentPlanet() {
+    /*public Planet getCurrentPlanet() {
         //apparently you can't directly access an index of a set, so I had to do a jank
         //thing like iterate through the entire list and return the first lol
         Planet currentPlanet = null;
@@ -150,7 +166,7 @@ public class Universe {
             break;
         }
         return currentPlanet;
-    }
+    }*/
 
     public void logUniverse() {
         Log.d("System number", String.valueOf(systems.size()));

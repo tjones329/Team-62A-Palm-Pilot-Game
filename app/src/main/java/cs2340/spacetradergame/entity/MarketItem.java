@@ -40,6 +40,14 @@ public enum MarketItem {
         this.var = var;
     }
 
+    public boolean canProduce(Planet.TechLevel techLevel) {
+        return MTLP <= techLevel.ordinal();
+    }
+
+    public boolean canSell(Planet.TechLevel techLevel) {
+        return MTLU <= techLevel.ordinal();
+    }
+
     public int getMTLP() {
         return MTLP;
     }
@@ -59,5 +67,4 @@ public enum MarketItem {
     public int getVar() {
         return var;
     }
-
 }

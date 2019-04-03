@@ -2,98 +2,64 @@ package cs2340.spacetradergame.entity;
 
 import android.util.Log;
 
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 import cs2340.spacetradergame.model.Point;
+import cs2340.spacetradergame.model.RandomMethods;
 
 public class SolarSystem {
-    enum TechLevel {
-        PREAGRICULTURE, AGRICULTURE, MIDIEVAL, RENAISSANCE, EARLYINDUSTRIAL, INDUSTRIAL,
-        POSTINDUSTRIAL, HITECH;
-        public static TechLevel[] techLevels = TechLevel.values();
-    }
-    enum Resources {
-        NOSPECIALRESOURCES, MINERALRICH, MINERALPOOR, DESERT, LOTSOFWATER, RICHSOIL, POORSOIL,
-        RICHFAUNA, LIFELESS, WEIRDMUSHROOMS, LOTSOFHERBS, ARTISTIC, WARLIKE;
-        public static Resources[] resources = Resources.values();
-    }
-    enum Pirates {
-        MINIMAL, FEW, SOME, MANY, SWARMS;
-        public static Pirates[] pirates = Pirates.values();
-    }
-    enum Police {
-        MINIMAL, FEW, SOME, MANY, SWARMS;
-        public static Police[] police = Police.values();
-    }
-    enum Government {
+    public enum Government { // If a solar system isn't governed on a system-wide level, not worth trading
         ANARCHY, TRIBAL, MONARCHY, DEMOCRACY, SOCIALIST, TOTALITARIAN;
         public static Government[] governments = Government.values();
+    }
+    public enum RandomEncounter { // Solar systems are governed, and thus enforced on a system-wide level
+        MINIMAL, FEW, SOME, MANY, SWARMS;
+        public static RandomEncounter[] values = RandomEncounter.values();
     }
 
     private String name;
     private Point pos;
-    private int randomTechLevel;
-    private Resources resources;
-    private Pirates pirates;
-    private Police police;
+
     private Government government;
+    private RandomEncounter police;
+    private RandomEncounter pirates;
     public Set<Planet> planets;
 
-    public SolarSystem(String name, Random random) {
+    public SolarSystem(String name) {
         this.name = name;
-        pos = new Point(random.nextInt(Universe.universeWidth),
-                random.nextInt(Universe.universeHeight));
+        pos = new Point(RandomMethods.nextInt(Universe.universeWidth),
+                RandomMethods.nextInt(Universe.universeHeight));
     }
 
-    /**
-     * Returns a number between 0 and max, inclusive, with a gaussian distribution
-     * @param random the random number object
-     * @param max the maximum number
-     * @return the random number
-     */
-    private int gaussian(Random random, int max) {
-        int i = (int) (((random.nextGaussian() + 3) / 6) * max);
-        if (i < 0) {
-            return 0;
-        } else if (i > max) {
-            return max;
-        } else {
-            return i;
-        }
-    }
-
-    public void startSystem(String[] planetNames, Random random) {
+    public void startSystem(String[] planetNames) {
         //we don't want techLevel to be system wide, it should vary for each planet. Commented out
         //techLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)];
-        int resourcesInt = random.nextInt(Resources.resources.length + 3);
-        if (resourcesInt < 3) {
-            resources = Resources.NOSPECIALRESOURCES;
-        } else {
-            resources = Resources.resources[resourcesInt - 3];
-        }
-        pirates = Pirates.pirates[gaussian(random, Pirates.pirates.length - 1)];
-        police = Police.police[gaussian(random, Police.police.length - 1)];
-        government = Government.governments[random.nextInt(Government.governments.length)];
+        pirates = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
+        police = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
+        government = Government.governments[RandomMethods.nextInt(Government.governments.length)];
 
         planets = new HashSet<>();
         Planet curr;
         for (String s : planetNames) {
             boolean added;
             do {
-                curr = new Planet(s, random);
+                curr = new Planet(s);
                 added = planets.add(curr);
             } while (!added);
         }
-        //once we've made sure that all planets are successfully added, we want each to have market
+    }
+
+    public Planet getRandomPlanet() {
+        int planetNum = RandomMethods.nextInt(planets.size());
+        int i = 0;
         for (Planet p : planets) {
-            randomTechLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)].ordinal();
-            p.initializeMarket(randomTechLevel);
-            p.getMarket().calculatePrices();
-            p.getMarket().calculateQuantities();
+            if (i == planetNum) {
+                return p;
+            }
+            ++i;
         }
+        return planets.iterator().next();
     }
 
     /**
@@ -124,18 +90,34 @@ public class SolarSystem {
         return name;
     }
 
+    public Government getGovernment() {
+        return government;
+    }
+
+    public RandomEncounter getPolice() {
+        return police;
+    }
+
+    public RandomEncounter getPirates() {
+        return pirates;
+    }
+
     public Point getPos() {
         return pos;
+    }
+
+    public Set<Planet> getPlanets() {
+        return planets;
     }
 
     public void logSystem() {
         Log.d("Solar System", "Name: " + name
                 + " Position: " + pos.toString()
                 //+ " Tech Level: " + techLevel
-                + " Resources: " + resources
-                + " Pirates: " + pirates
+                //+ " Resources: " + resources
+                + " Government: " + government
                 + " Police: " + police
-                + " Government: " + government);
+                + " Pirates: " + pirates);
         for (Planet p : planets) {
             Log.d("Planet", p.toString());
         }

@@ -2,19 +2,27 @@ package cs2340.spacetradergame.model;
 
 import android.util.Log;
 
+import java.util.Set;
+
 import cs2340.spacetradergame.entity.Gnat;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
-import cs2340.spacetradergame.entity.Spaceship;
+import cs2340.spacetradergame.entity.SolarSystem;
 import cs2340.spacetradergame.entity.Universe;
 
 public class Game {
     public static final int MAX_SKILL_POINTS = 16;
+    public static final int STARTING_CREDITS = 1000;
+    public static final int ITEM_NUM = 10;
+
+
     private static Game instance = new Game();
 
     private int difficulty;
     private Player player;
     private Universe universe;
+    private SolarSystem currentSystem;
+    private Planet currentPlanet;
 
     public static Game getInstance() {
         return instance;
@@ -23,10 +31,17 @@ public class Game {
     public void newUniverse() {
         universe = new Universe();
         universe.logUniverse();
+
+        currentSystem = universe.getRandomSystem();
+        currentPlanet = currentSystem.getRandomPlanet();
     }
 
     public Planet getCurrentPlanet() {
-        return universe.getCurrentPlanet();
+        return currentPlanet;
+    }
+
+    public SolarSystem getCurrentSystem() {
+        return currentSystem;
     }
 
     public int getDifficulty() {
@@ -35,6 +50,22 @@ public class Game {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public Set<Planet> getPlanets() {
+        return currentSystem.getPlanets();
+    }
+
+    public Set<SolarSystem> getSystems() {
+        return universe.getSystems();
+    }
+
+    public void setCurrentSystem(SolarSystem system) {
+        currentSystem = system;
+    }
+
+    public void setCurrentPlanet(Planet planet) {
+        currentPlanet = planet;
     }
 
     public void setDifficulty(int difficulty) {
