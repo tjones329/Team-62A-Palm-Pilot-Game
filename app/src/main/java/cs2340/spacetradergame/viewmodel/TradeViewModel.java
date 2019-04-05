@@ -4,6 +4,8 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import java.util.List;
+
 import cs2340.spacetradergame.entity.CargoHold;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
@@ -15,7 +17,7 @@ public class TradeViewModel extends AndroidViewModel {
     private CargoHold hold;
     private boolean buySell = true; // true = Buy, false = Sell
 
-    private int[] prices;
+    private List<Integer> prices;
 
     public TradeViewModel (@NonNull Application application) {
         super(application);
@@ -26,11 +28,12 @@ public class TradeViewModel extends AndroidViewModel {
         hold = player.getHold();
     }
 
-    public void transact(int[] items) {
+    public void transact(List<Integer> items) {
         int total = 0;
         for (int i = 0; i < Game.ITEM_NUM; ++i) {
-            total += items[i] * prices[i];
+            total += items.get(i) * prices.get(i);
         }
+        //@TODO change planet values
         if (buySell) {
             hold.addCargo(items);
             player.bought(total);
@@ -39,16 +42,16 @@ public class TradeViewModel extends AndroidViewModel {
             player.sold(total);
         }
     }
-    public int[] getPrices() {
+    public List<Integer> getPrices() {
         return prices;
     }
 
-    public int[] getAvailable() {
+    public List<Integer> getAvailable() {
         return currentPlanet.getQuantities();
     }
 
     public int[] getHold() {
-        return hold.getCargo();
+        return hold.getItems();
     }
 
     /**

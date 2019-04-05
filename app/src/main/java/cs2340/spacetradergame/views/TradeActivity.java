@@ -14,6 +14,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.model.Game;
 import cs2340.spacetradergame.viewmodel.TradeViewModel;
@@ -42,8 +45,8 @@ public class TradeActivity extends AppCompatActivity {
 
     private Button transactButton;
 
-    private int[] prices;
-    private int[] quantities;
+    private List<Integer> prices;
+    private List<Integer> quantities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,14 +132,15 @@ public class TradeActivity extends AppCompatActivity {
         addButtons[9] = findViewById(R.id.add9);
 
         prices = viewModel.getPrices();
-        int[] available = viewModel.getAvailable();
-        quantities = new int[Game.ITEM_NUM];
+        List<Integer> available = viewModel.getAvailable();
+        quantities = new ArrayList<>(Game.ITEM_NUM);
 
         for (int i = 0; i < Game.ITEM_NUM; ++i) {
-            priceTextViews[i].setText(String.valueOf(prices[i]));
-            availableTextViews[i].setText(String.valueOf(available[i]));
+            quantities.add(0);
+            priceTextViews[i].setText(String.valueOf(prices.get(i)));
+            availableTextViews[i].setText(String.valueOf(available.get(i)));
             quantityInputs[i].setText("0");
-            if (prices[i] == 0) {
+            if (prices.get(i) == 0) {
                 subtractButtons[i].setClickable(false);
                 addButtons[i].setClickable(false);
                 quantityInputs[i].setEnabled(false);
@@ -173,7 +177,7 @@ public class TradeActivity extends AppCompatActivity {
                         }
                         int newVal = getNumber(s);
                         if (isValidItemNum(currentItem, newVal)) {
-                            quantities[currentItem] = newVal;
+                            quantities.set(currentItem, newVal);
                         } else {
                             wasReset = true;
                             reset(currentItem);
@@ -217,10 +221,10 @@ public class TradeActivity extends AppCompatActivity {
             for (int j = 0; j < Game.ITEM_NUM; ++j) {
                 if (itemNum == j) {
                     cargo += quantity;
-                    total += quantity * prices[j];
+                    total += quantity * prices.get(j);
                 } else {
-                    cargo += quantities[j];
-                    total += quantities[j] * prices[j];
+                    cargo += quantities.get(j);
+                    total += quantities.get(j) * prices.get(j);
                 }
             }
             if (invalid = !viewModel.canAdd(cargo)) {
@@ -240,7 +244,7 @@ public class TradeActivity extends AppCompatActivity {
     }
     private void reset(int itemId) {
         Log.d("Action", "Reset");
-        quantityInputs[itemId].setText(String.valueOf(quantities[itemId]));
+        quantityInputs[itemId].setText(String.valueOf(quantities.get(itemId)));
     }
 
     public void subtract(int itemId) {
@@ -409,7 +413,7 @@ public class TradeActivity extends AppCompatActivity {
     private void clear() {
         for (int i = 0; i < Game.ITEM_NUM; ++i) {
             quantityInputs[i].setText("0");
-            quantities[i] = 0;
+            quantities.set(i, 0);
         }
     }
 

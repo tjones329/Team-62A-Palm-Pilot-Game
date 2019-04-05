@@ -1,6 +1,7 @@
 package cs2340.spacetradergame.entity;
 
 import cs2340.spacetradergame.model.Game;
+import cs2340.spacetradergame.model.RandomMethods;
 
 public class Player {
 

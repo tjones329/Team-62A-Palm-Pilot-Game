@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import java.util.List;
 import java.util.Set;
 
 import cs2340.spacetradergame.entity.Planet;
@@ -12,8 +13,8 @@ import cs2340.spacetradergame.entity.Spaceship;
 import cs2340.spacetradergame.model.Game;
 
 public class TravelSolarSystemViewModel extends AndroidViewModel {
-    private Set<SolarSystem> systems;
-    private Set<Planet> planets;
+    private List<SolarSystem> systems;
+    private List<Planet> planets;
     private Spaceship ship;
     private Game game;
 
@@ -33,9 +34,9 @@ public class TravelSolarSystemViewModel extends AndroidViewModel {
         game.setCurrentPlanet(planet);
     }
 
-    public Set<SolarSystem> getSystems() { return systems;}
+    public List<SolarSystem> getSystems() { return systems;}
 
-    public Set<Planet> getPlanets() {return planets;}
+    public List<Planet> getPlanets() {return planets;}
 
     public boolean hasFuel() {
         return ship.getFuel() > 0;

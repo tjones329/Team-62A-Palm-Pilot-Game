@@ -2,7 +2,11 @@ package cs2340.spacetradergame.entity;
 
 import android.util.Log;
 
+import com.google.firebase.firestore.Exclude;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import cs2340.spacetradergame.model.Point;
@@ -24,7 +28,11 @@ public class SolarSystem {
     private Government government;
     private RandomEncounter police;
     private RandomEncounter pirates;
-    public Set<Planet> planets;
+    private List<Planet> planets;
+
+    public SolarSystem() {
+
+    }
 
     public SolarSystem(String name) {
         this.name = name;
@@ -39,7 +47,8 @@ public class SolarSystem {
         police = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
         government = Government.governments[RandomMethods.nextInt(Government.governments.length)];
 
-        planets = new HashSet<>();
+        this.planets = new ArrayList<>(planetNames.length);
+        Set<Planet> planets = new HashSet<>();
         Planet curr;
         for (String s : planetNames) {
             boolean added;
@@ -47,9 +56,11 @@ public class SolarSystem {
                 curr = new Planet(s);
                 added = planets.add(curr);
             } while (!added);
+            this.planets.add(curr);
         }
     }
 
+    @Exclude
     public Planet getRandomPlanet() {
         int planetNum = RandomMethods.nextInt(planets.size());
         int i = 0;
@@ -60,6 +71,15 @@ public class SolarSystem {
             ++i;
         }
         return planets.iterator().next();
+    }
+
+    public Planet findPlanet(String planetName) {
+        for (Planet p : planets) {
+            if (p.getName().equals(planetName)) {
+                return p;
+            }
+        }
+        return null;
     }
 
     /**
@@ -84,30 +104,6 @@ public class SolarSystem {
             }
         }
         return locations;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Government getGovernment() {
-        return government;
-    }
-
-    public RandomEncounter getPolice() {
-        return police;
-    }
-
-    public RandomEncounter getPirates() {
-        return pirates;
-    }
-
-    public Point getPos() {
-        return pos;
-    }
-
-    public Set<Planet> getPlanets() {
-        return planets;
     }
 
     public void logSystem() {
@@ -136,5 +132,29 @@ public class SolarSystem {
         } else {
             return false;
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Point getPos() {
+        return pos;
+    }
+
+    public Government getGovernment() {
+        return government;
+    }
+
+    public RandomEncounter getPolice() {
+        return police;
+    }
+
+    public RandomEncounter getPirates() {
+        return pirates;
+    }
+
+    public List<Planet> getPlanets() {
+        return planets;
     }
 }

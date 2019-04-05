@@ -2,15 +2,23 @@ package cs2340.spacetradergame.entity;
 
 import android.util.Log;
 
-import cs2340.spacetradergame.model.Point;
+import java.util.List;
 
-public abstract class Spaceship {
+import cs2340.spacetradergame.model.Point;
+import cs2340.spacetradergame.model.RandomMethods;
+
+public class Spaceship {
     private int health;
     private int speed;
-    private int hyperdrive; // number of parsecs the ship can travel
     private int fuel;
+    private int hyperdrive; // number of parsecs the ship can travel
     private int damage;
     private CargoHold hold;
+
+    public Spaceship() {
+
+    }
+
     public Spaceship(int health, int speed, int fuel, int hyperdrive, int damage, int capacity) {
         this.health = health;
         this.speed = speed;
@@ -19,6 +27,13 @@ public abstract class Spaceship {
         this.damage = damage;
         this.hold = new CargoHold(capacity);
     }
+
+    public int pirateDamage() {
+        int damage = RandomMethods.gaussian(10) + 5;
+        health -= damage;
+        return damage;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -69,7 +84,7 @@ public abstract class Spaceship {
             }
         }
     }*/
-    public void removeCargo(int[] items) {
+    public void removeCargo(List<Integer> items) {
         hold.removeCargo(items);
     }
 }

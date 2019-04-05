@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
+import java.util.List;
 import java.util.Set;
 
 import cs2340.spacetradergame.entity.Planet;
@@ -13,7 +14,7 @@ import cs2340.spacetradergame.model.Game;
 
 public class TravelPlanetViewModel extends AndroidViewModel {
     private Game game;
-    private Set<Planet> planets;
+    private List<Planet> planets;
 
     public TravelPlanetViewModel(@NonNull Application application) {
         super(application);
@@ -25,5 +26,9 @@ public class TravelPlanetViewModel extends AndroidViewModel {
         game.setCurrentPlanet(planet);
     }
 
-    public Set<Planet> getPlanets() {return planets;}
+    public List<Planet> getPlanets() {return planets;}
+
+    public void travel() {
+        game.travel();
+    }
 }

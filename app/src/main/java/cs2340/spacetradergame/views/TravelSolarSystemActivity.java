@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.List;
 import java.util.Set;
 
 import cs2340.spacetradergame.R;
@@ -19,7 +20,7 @@ public class TravelSolarSystemActivity extends AppCompatActivity {
 
     private Spinner solarSpinner;
     private TravelSolarSystemViewModel viewModel;
-    private Set<SolarSystem> systems;
+    private List<SolarSystem> systems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

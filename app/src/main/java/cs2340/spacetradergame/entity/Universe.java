@@ -2,7 +2,11 @@ package cs2340.spacetradergame.entity;
 
 import android.util.Log;
 
+import com.google.firebase.firestore.Exclude;
+
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import cs2340.spacetradergame.model.RandomMethods;
@@ -13,7 +17,7 @@ public class Universe {
     public static final int universeWidth = 150;
     public static final int universeHeight = 100;
 
-    private Set<SolarSystem> systems = new HashSet<>();
+    private List<SolarSystem> systems;
 
     public Universe() {
         class PlanetList {
@@ -111,8 +115,11 @@ public class Universe {
                 return out;
             }
         }
-        int systemNum = 22 + RandomMethods.nextInt(5);
+
         PlanetList planetList = new PlanetList();
+        int systemNum = 22 + RandomMethods.nextInt(5);
+        this.systems = new ArrayList<>(systemNum);
+        Set<SolarSystem> systems = new HashSet<>();
         for (int i = systemNum - 1; i >= 0; --i) {
             String name = ((char)('A' + RandomMethods.nextInt(26)))
                     + String.valueOf(RandomMethods.nextInt(10))
@@ -134,9 +141,11 @@ public class Universe {
                 planets[j] = planetList.remove(RandomMethods.nextInt(planetList.size));
             }
             curr.startSystem(planets);
+            this.systems.add(curr);
         }
     }
 
+    @Exclude
     public SolarSystem getRandomSystem() {
         int systemNum = RandomMethods.nextInt(systems.size());
         int i = 0;
@@ -149,29 +158,23 @@ public class Universe {
         return systems.iterator().next();
     }
 
-    public Set<SolarSystem> getSystems() {
-        return systems;
-    }
-
-    //For the purposes of m7, we return a random planet because we can't navigate different planets
-    /*public Planet getCurrentPlanet() {
-        //apparently you can't directly access an index of a set, so I had to do a jank
-        //thing like iterate through the entire list and return the first lol
-        Planet currentPlanet = null;
-        for (SolarSystem system : systems) {
-            for (Planet planet : system.planets) {
-                currentPlanet = planet;
-                break;
+    public SolarSystem findSystem(String systemName) {
+        for (SolarSystem s : systems) {
+            if (s.getName().equals(systemName)) {
+                return s;
             }
-            break;
         }
-        return currentPlanet;
-    }*/
+        return null;
+    }
 
     public void logUniverse() {
         Log.d("System number", String.valueOf(systems.size()));
         for (SolarSystem s : systems) {
             s.logSystem();
         }
+    }
+
+    public List<SolarSystem> getSystems() {
+        return systems;
     }
 }

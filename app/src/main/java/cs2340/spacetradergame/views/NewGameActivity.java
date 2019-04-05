@@ -120,7 +120,7 @@ public class NewGameActivity extends AppCompatActivity {
         if(getSum() == Game.MAX_SKILL_POINTS) {
             viewModel.createGame(textName.getText().toString(), levelBar.getProgress(), textToInt(textPilot),
                     textToInt(textFighter), textToInt(textTrader), textToInt(textEngineer));
-            Intent intent = new Intent(NewGameActivity.this, TravelSolarSystemActivity.class);
+            Intent intent = new Intent(NewGameActivity.this, PlanetActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(NewGameActivity.this, "Unallocated skill points", Toast.LENGTH_SHORT).show();

@@ -2,13 +2,17 @@ package cs2340.spacetradergame.model;
 
 import android.util.Log;
 
-import java.util.Set;
+import com.google.firebase.firestore.Exclude;
+
+import java.util.List;
 
 import cs2340.spacetradergame.entity.Gnat;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.entity.SolarSystem;
+import cs2340.spacetradergame.entity.Spaceship;
 import cs2340.spacetradergame.entity.Universe;
+import cs2340.spacetradergame.views.MainActivity;
 
 public class Game {
     public static final int MAX_SKILL_POINTS = 16;
@@ -24,8 +28,13 @@ public class Game {
     private SolarSystem currentSystem;
     private Planet currentPlanet;
 
-    public static Game getInstance() {
-        return instance;
+    private String saveCurrentSystem;
+    private String saveCurrentPlanet;
+
+    private boolean wasAttacked = false;
+
+    public Game() {
+
     }
 
     public void newUniverse() {
@@ -36,14 +45,51 @@ public class Game {
         currentPlanet = currentSystem.getRandomPlanet();
     }
 
-    public Planet getCurrentPlanet() {
-        return currentPlanet;
+    public static void loadGame(String id, MainActivity activity) {
+        Database.loadGame(id, activity);
+    }
+    public static void loadInstance(Game game) {
+        instance = game;
+        instance.loadGame();
+    }
+    public void loadGame() {
+        currentSystem = universe.findSystem(saveCurrentSystem);
+        currentPlanet = currentSystem.findPlanet(saveCurrentPlanet);
     }
 
-    public SolarSystem getCurrentSystem() {
-        return currentSystem;
+    /**
+     * Computes during travel if the player was attacked
+     */
+    public void travel() {
+        wasAttacked = RandomMethods.nextInt(100) > 80;
+    }
+    public boolean wasAttacked() {
+        boolean out = wasAttacked;
+        wasAttacked = false;
+        return out;
     }
 
+    @Exclude
+    public static Game getInstance() {
+        return instance;
+    }
+
+    @Exclude
+    public List<Planet> getPlanets() {
+        return currentSystem.getPlanets();
+    }
+
+    @Exclude
+    public List<SolarSystem> getSystems() {
+        return universe.getSystems();
+    }
+
+    @Exclude
+    public Spaceship getShip() {
+        return player.getShip();
+    }
+
+    //getters
     public int getDifficulty() {
         return difficulty;
     }
@@ -52,14 +98,29 @@ public class Game {
         return player;
     }
 
-    public Set<Planet> getPlanets() {
-        return currentSystem.getPlanets();
+    public Universe getUniverse() {
+        return universe;
     }
 
-    public Set<SolarSystem> getSystems() {
-        return universe.getSystems();
+    @Exclude
+    public SolarSystem getCurrentSystem() {
+        return currentSystem;
     }
 
+    @Exclude
+    public Planet getCurrentPlanet() {
+        return currentPlanet;
+    }
+
+    public String getSaveCurrentSystem() {
+        return currentSystem.getName();
+    }
+
+    public String getSaveCurrentPlanet() {
+        return currentPlanet.getName();
+    }
+
+    //setters
     public void setCurrentSystem(SolarSystem system) {
         currentSystem = system;
     }

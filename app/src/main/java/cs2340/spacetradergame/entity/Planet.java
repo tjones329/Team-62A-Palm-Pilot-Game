@@ -1,5 +1,10 @@
 package cs2340.spacetradergame.entity;
 
+import com.google.firebase.firestore.Exclude;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import cs2340.spacetradergame.model.Game;
 import cs2340.spacetradergame.model.RandomMethods;
 
@@ -26,8 +31,12 @@ public class Planet {
     private TechLevel techLevel;
     private Resources resources;
 
-    private int[] prices;
-    private int[] quantities;
+    private List<Integer> prices;
+    private List<Integer> quantities;
+
+    public Planet() {
+
+    }
 
     public Planet(String name) {
         this.name = name;
@@ -47,8 +56,8 @@ public class Planet {
             resources = Resources.resources[resourcesInt - 3];
         }
 
-        prices = new int[Game.ITEM_NUM];
-        quantities = new int[Game.ITEM_NUM];
+        prices = new ArrayList<>(Game.ITEM_NUM);
+        quantities = new ArrayList<>(Game.ITEM_NUM);
         for (MarketItem m : MarketItem.values()) { // calculate prices and quantities of each item
             // Ex. the price for water would be 30 (the base price)
             // + 3*2 (the IPL * (Planet Tech Level - MTLP)) + (variance)
@@ -64,8 +73,8 @@ public class Planet {
                 price = 0;
                 quantity = 0; // 0 indicates that this planet cannot produce this item
             }
-            prices[m.ordinal()] = price;
-            quantities[m.ordinal()] = quantity;
+            prices.add(price);
+            quantities.add(quantity);
         }
     }
 
@@ -101,6 +110,7 @@ public class Planet {
      *
      * @return a double[] with double[0] = x and double[1] = y
      */
+    @Exclude
     public double[] getCoords(){
         double angle = RandomMethods.nextInt(360) * 180 / Math.PI;
         double coord;
@@ -116,6 +126,10 @@ public class Planet {
         return name;
     }
 
+    public int getOrbitRadius() {
+        return orbitRadius;
+    }
+
     public TechLevel getTechLevel() {
         startPlanet();
         return techLevel;
@@ -126,20 +140,28 @@ public class Planet {
         return resources;
     }
 
+    /*
+    @Exclude
     public int[] getPrices() {
         startPlanet();
         return prices;
     }
 
+    @Exclude
     public int[] getQuantities() {
         startPlanet();
         return quantities;
     }
+    */
 
-    //public Market getMarket() { return market;}
+    public List<Integer> getPrices() {
+        startPlanet();
+        return prices;
+    }
 
-    public int getOrbitRadius() {
-        return orbitRadius;
+    public List<Integer> getQuantities() {
+        startPlanet();
+        return quantities;
     }
 
     @Override

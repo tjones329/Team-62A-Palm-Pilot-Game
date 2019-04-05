@@ -6,8 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 import cs2340.spacetradergame.R;
+import cs2340.spacetradergame.model.RandomMethods;
 import cs2340.spacetradergame.viewmodel.PlanetViewModel;
 
 public class PlanetActivity extends AppCompatActivity {
@@ -31,6 +35,15 @@ public class PlanetActivity extends AppCompatActivity {
         //also, to get the prices, do planet.getMarket, and then call method calculateprices
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (viewModel.wasAttacked()) {
+            Toast.makeText(PlanetActivity.this,
+                    "You were attacked by a pirate and lost " + viewModel.pirateDamage() + " health.", Toast.LENGTH_LONG).show();
+        }
+    }
+
     public void onTradePressed(View view) {
         Intent intent = new Intent(PlanetActivity.this, TradeActivity.class);
         startActivity(intent);
@@ -44,5 +57,9 @@ public class PlanetActivity extends AppCompatActivity {
     public void onTravelPressed(View view) {
         Intent intent = new Intent(PlanetActivity.this, TravelSolarSystemActivity.class);
         startActivity(intent);
+    }
+
+    public void onSavePressed(View view) {
+        viewModel.saveGame();
     }
 }
