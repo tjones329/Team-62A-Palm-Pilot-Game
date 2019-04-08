@@ -177,4 +177,8 @@ public class Universe {
     public List<SolarSystem> getSystems() {
         return systems;
     }
+
+    public void setSystems(List<SolarSystem> systems) {
+        this.systems = systems;
+    }
 }
