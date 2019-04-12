@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.Toast;
 
 import java.util.List;
-import java.util.Set;
 
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.entity.SolarSystem;
@@ -42,7 +42,8 @@ public class TravelSolarSystemActivity extends AppCompatActivity {
             systemArray[i++] = system.getName();
         }
 
-        ArrayAdapter<String> solarAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, systemArray);
+        SpinnerAdapter solarAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, systemArray);
 
         solarSpinner.setAdapter(solarAdapter);
 

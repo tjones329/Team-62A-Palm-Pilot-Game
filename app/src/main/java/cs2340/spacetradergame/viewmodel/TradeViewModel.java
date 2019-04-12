@@ -15,12 +15,13 @@ import cs2340.spacetradergame.model.Game;
  * class
  */
 public class TradeViewModel extends AndroidViewModel {
-    private Planet currentPlanet;
-    private Player player;
-    private CargoHold hold;
+    private final Planet currentPlanet;
+    private final Player player;
+    private final CargoHold hold;
+
     private boolean buySell = true; // true = Buy, false = Sell
 
-    private List<Integer> prices;
+    private final List<Integer> prices;
 
     /**
      * constructor
@@ -88,7 +89,7 @@ public class TradeViewModel extends AndroidViewModel {
 
     /**
      *
-     * @return busell
+     * @return buysell
      */
     public boolean getBuySell() {
         return buySell;

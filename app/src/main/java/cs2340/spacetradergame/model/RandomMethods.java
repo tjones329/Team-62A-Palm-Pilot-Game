@@ -6,7 +6,7 @@ import java.util.Random;
  * class
  */
 public class RandomMethods {
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     /**
      * Returns an integer between 0 and max, inclusive, with a gaussian distribution

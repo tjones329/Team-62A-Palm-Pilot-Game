@@ -12,7 +12,7 @@ import cs2340.spacetradergame.model.Game;
  * class
  */
 public class NewGameViewModel extends AndroidViewModel {
-    static Game game = Game.getInstance();
+    private static final Game game = Game.getInstance();
 
     /**
      *
@@ -31,25 +31,8 @@ public class NewGameViewModel extends AndroidViewModel {
      * @param trader int
      * @param engineer int
      */
-    public void createGame(String name, int difficulty, int pilot, int fighter, int trader, int engineer) {
-        game.setDifficulty(difficulty);
-        game.setPlayer(new Player(name, pilot, fighter, trader, engineer));
-        game.newUniverse();
-    }
-
-    /**
-     *
-     * @return planet
-     */
-    public static Planet getCurrentPlanet() {
-        return game.getCurrentPlanet();
-    }
-
-    /**
-     *
-     * @return player
-     */
-    public static Player getPlayer() {
-        return game.getPlayer();
+    public void createGame(String name, int difficulty, int pilot, int fighter, int trader,
+                           int engineer) {
+        game.newUniverse(difficulty, new Player(name, pilot, fighter, trader, engineer));
     }
 }

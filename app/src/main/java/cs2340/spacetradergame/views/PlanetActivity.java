@@ -15,7 +15,7 @@ import cs2340.spacetradergame.viewmodel.PlanetViewModel;
  * class
  */
 public class PlanetActivity extends AppCompatActivity {
-    PlanetViewModel viewModel;
+    private PlanetViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,8 @@ public class PlanetActivity extends AppCompatActivity {
         super.onResume();
         if (viewModel.wasAttacked()) {
             Toast.makeText(PlanetActivity.this,
-                    "You were attacked by a pirate and lost " + viewModel.pirateDamage() + " health.", Toast.LENGTH_LONG).show();
+                    "You were attacked by a pirate and lost " + viewModel.pirateDamage()
+                            + " health.", Toast.LENGTH_LONG).show();
         }
     }
 

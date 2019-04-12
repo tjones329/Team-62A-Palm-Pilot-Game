@@ -17,12 +17,12 @@ public class Planet {
     public enum TechLevel {
         PREAGRICULTURE, AGRICULTURE, MIDIEVAL, RENAISSANCE, EARLYINDUSTRIAL, INDUSTRIAL,
         POSTINDUSTRIAL, HITECH;
-        public static TechLevel[] techLevels = TechLevel.values();
+        static final TechLevel[] techLevels = TechLevel.values();
     }
     public enum Resources {
         NOSPECIALRESOURCES, MINERALRICH, MINERALPOOR, DESERT, LOTSOFWATER, RICHSOIL, POORSOIL,
         RICHFAUNA, LIFELESS, WEIRDMUSHROOMS, LOTSOFHERBS, ARTISTIC, WARLIKE;
-        public static Resources[] resources = Resources.values();
+        static final Resources[] resources = Resources.values();
     }
 
     public static final int MAX_RADIUS = 10;
@@ -38,7 +38,7 @@ public class Planet {
     private List<Integer> quantities;
 
     /**
-     * empty constructor
+     * Explicit for Firebase
      */
     public Planet() {
 
@@ -50,7 +50,7 @@ public class Planet {
      */
     public Planet(String name) {
         this.name = name;
-        orbitRadius = RandomMethods.nextInt(MAX_RADIUS + 1 - MIN_RADIUS) + MIN_RADIUS;
+        orbitRadius = RandomMethods.nextInt(MAX_RADIUS - MIN_RADIUS - 1) + MIN_RADIUS;
     }
 
     /**
@@ -112,13 +112,13 @@ public class Planet {
      */
     @Exclude
     public double[] getCoords(){
-        double angle = RandomMethods.nextInt(360) * 180 / Math.PI;
+        double angle = (RandomMethods.nextInt(360) * 180) / Math.PI;
         double coord;
         double[] returnValue = new double[2];
         coord = Math.cos(angle) * orbitRadius * 100;
-        returnValue[0] = Math.round(coord) / 10;
+        returnValue[0] = coord / 10;
         coord = Math.sin(angle) * orbitRadius * 100;
-        returnValue[1] = Math.round(coord) / 10;
+        returnValue[1] = coord / 10;
         return returnValue;
     }
 

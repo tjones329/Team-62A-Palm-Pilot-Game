@@ -41,7 +41,7 @@ public class TestSolarSystem {
         }
 
         SolarSystem systemFull = new SolarSystem();
-        String[] planetNamesFull = new String[Planet.MAX_RADIUS + 1 - Planet.MIN_RADIUS];
+        String[] planetNamesFull = new String[Planet.MAX_RADIUS - Planet.MIN_RADIUS + 1];
         for (int i = 0; i < planetNamesFull.length; ++i) {
             planetNamesFull[i] = String.valueOf(i);
         }
@@ -50,7 +50,8 @@ public class TestSolarSystem {
         boolean[] orbitCoverage = new boolean[Planet.MAX_RADIUS - Planet.MIN_RADIUS + 1];
         for (Planet p : planetList) {
             Assert.assertTrue("Orbit not in range",
-                    (p.getOrbitRadius() >= Planet.MIN_RADIUS) && (p.getOrbitRadius() <= Planet.MAX_RADIUS));
+                    (p.getOrbitRadius() >= Planet.MIN_RADIUS)
+                            && (p.getOrbitRadius()<= Planet.MAX_RADIUS));
             orbitCoverage[p.getOrbitRadius() - 2] = true;
         }
         for (int i = 0; i < orbitCoverage.length; ++i) {
@@ -67,7 +68,8 @@ public class TestSolarSystem {
         orbitCoverage = new boolean[Planet.MAX_RADIUS - Planet.MIN_RADIUS + 1];
         for (Planet p : planetList) {
             Assert.assertTrue("Orbit not in range",
-                    (p.getOrbitRadius() >= Planet.MIN_RADIUS) && (p.getOrbitRadius() <= Planet.MAX_RADIUS));
+                    (p.getOrbitRadius() >= Planet.MIN_RADIUS)
+                            && (p.getOrbitRadius() <= Planet.MAX_RADIUS));
             orbitCoverage[p.getOrbitRadius() - 2] = true;
         }
         boolean allCovered = true;

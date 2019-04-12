@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class TravelPlanetActivity extends AppCompatActivity {
             planetArray[i++] = planet.getName();
         }
 
-        ArrayAdapter<String> planetAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, planetArray);
+        SpinnerAdapter planetAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item, planetArray);
 
         planetSpinner.setAdapter(planetAdapter);
 

@@ -1,7 +1,7 @@
 package cs2340.spacetradergame.entity;
 
 /**
- * gnat variant of spaaceship
+ * gnat variant of spaceship
  */
 public class Gnat extends Spaceship {
     /**

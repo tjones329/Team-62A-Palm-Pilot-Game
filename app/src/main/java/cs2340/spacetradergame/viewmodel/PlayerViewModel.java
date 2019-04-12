@@ -12,8 +12,8 @@ import cs2340.spacetradergame.model.Game;
  * class
  */
 public class PlayerViewModel extends AndroidViewModel {
-    private Player player;
-    private Spaceship ship;
+    private final Player player;
+    private final Spaceship ship;
 
     /**
      * constructor
@@ -36,7 +36,7 @@ public class PlayerViewModel extends AndroidViewModel {
 
     /**
      *
-     * @return creds
+     * @return credits
      */
     public int getCredits() {
         return player.getCredits();

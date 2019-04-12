@@ -16,13 +16,15 @@ import cs2340.spacetradergame.model.RandomMethods;
  * solar system
  */
 public class SolarSystem {
-    public enum Government { // If a solar system isn't governed on a system-wide level, not worth trading
+    public enum Government { // If a solar system isn't governed on a system-wide level,
+        // not worth trading
         ANARCHY, TRIBAL, MONARCHY, DEMOCRACY, SOCIALIST, TOTALITARIAN;
-        public static Government[] governments = Government.values();
+        static final Government[] governments = Government.values();
     }
-    public enum RandomEncounter { // Solar systems are governed, and thus enforced on a system-wide level
+    public enum RandomEncounter { // Solar systems are governed, and thus enforced on a system-wide
+        // level
         MINIMAL, FEW, SOME, MANY, SWARMS;
-        public static RandomEncounter[] values = RandomEncounter.values();
+        static final RandomEncounter[] values = RandomEncounter.values();
     }
 
     private String name;
@@ -110,14 +112,14 @@ public class SolarSystem {
      * @return a set of double[] with double[0] = x and double[1] = y
      */
     public Set<double[]> onZoom() {
-        HashSet<double[]> locations = new HashSet<>(this.planets.size());
+        Set<double[]> locations = new HashSet<>(this.planets.size());
         for (Planet p : this.planets) {
             boolean done = false;
             while (!done) {
                 done = true;
                 double[] xyValue = p.getCoords();
                 for (double[] planetLocation : locations) {
-                    if (xyValue[0] == planetLocation[0] && xyValue[1] == planetLocation[1]) {
+                    if ((xyValue[0] == planetLocation[0]) && (xyValue[1] == planetLocation[1])) {
                         done = false;
                     }
                 }

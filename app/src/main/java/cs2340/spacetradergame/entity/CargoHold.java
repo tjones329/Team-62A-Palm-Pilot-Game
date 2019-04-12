@@ -2,8 +2,6 @@ package cs2340.spacetradergame.entity;
 
 import android.util.Log;
 
-import com.google.firebase.firestore.Exclude;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,18 +14,18 @@ import cs2340.spacetradergame.model.Game;
 public class CargoHold {
     private int capacity;
     private int currentFilled;
-    private int[] items = new int[Game.ITEM_NUM];
-    private List<Integer> saveItems = new ArrayList<>(Game.ITEM_NUM);
+    private final int[] items = new int[Game.ITEM_NUM];
+    private final List<Integer> saveItems = new ArrayList<>(Game.ITEM_NUM);
 
     /**
-     * Default constructor for cargohold
+     * Default constructor for cargohold, explicit for Firebase
      */
     public CargoHold() {
 
     }
 
     /**
-     * Alternative constructor with capacity aprameter
+     * Alternative constructor with a parameter for capacity
      * @param capacity tells us how many items we can have total
      */
     public CargoHold(int capacity) {
@@ -93,7 +91,7 @@ public class CargoHold {
      */
     public boolean canAdd(int cargo) {
         Log.d("Current cargo", String.valueOf(currentFilled));
-        return currentFilled + cargo <= capacity;
+        return (currentFilled + cargo) <= capacity;
     }
 
     /**
@@ -118,17 +116,5 @@ public class CargoHold {
      */
     public int[] getItems() {
         return items;
-    }
-
-    /**
-     *
-     * @return list of savevd items
-     */
-    public List<Integer> getSaveItems() {
-        saveItems.clear();
-        for (int i : items) {
-            saveItems.add(i);
-        }
-        return saveItems;
     }
 }

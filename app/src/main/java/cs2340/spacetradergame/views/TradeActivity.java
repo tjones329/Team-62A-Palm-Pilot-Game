@@ -35,16 +35,16 @@ public class TradeActivity extends AppCompatActivity {
     private TextView currentCreditsText;
 
     //Available display
-    TextView[] availableTextViews;
+    private TextView[] availableTextViews;
 
     //Hold display
-    TextView[] holdTextViews;
+    private TextView[] holdTextViews;
 
     //Quantity inputs
     private EditText[] quantityInputs;
 
-    private ImageButton[] subtractButtons;
-    private ImageButton[] addButtons;
+    //private ImageButton[] subtractButtons;
+    //private ImageButton[] addButtons;
 
     private Button transactButton;
 
@@ -114,6 +114,7 @@ public class TradeActivity extends AppCompatActivity {
         quantityInputs[8] = findViewById(R.id.quantity8);
         quantityInputs[9] = findViewById(R.id.quantity9);
 
+        ImageButton[] subtractButtons;
         subtractButtons = new ImageButton[Game.ITEM_NUM];
         subtractButtons[0] = findViewById(R.id.subtract0);
         subtractButtons[1] = findViewById(R.id.subtract1);
@@ -126,6 +127,7 @@ public class TradeActivity extends AppCompatActivity {
         subtractButtons[8] = findViewById(R.id.subtract8);
         subtractButtons[9] = findViewById(R.id.subtract9);
 
+        ImageButton[] addButtons;
         addButtons = new ImageButton[Game.ITEM_NUM];
         addButtons[0] = findViewById(R.id.add0);
         addButtons[1] = findViewById(R.id.add1);
@@ -171,7 +173,8 @@ public class TradeActivity extends AppCompatActivity {
                     @Override
                     public void afterTextChanged(Editable s) {}
                     @Override
-                    public void beforeTextChanged(CharSequence s, int start, int before, int count) {
+                    public void beforeTextChanged(CharSequence s, int start, int before,
+                                                  int count) {
                     }
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -268,7 +271,7 @@ public class TradeActivity extends AppCompatActivity {
      * subtract
      * @param itemId int
      */
-    public void subtract(int itemId) {
+    private void subtract(int itemId) {
         quantityInputs[itemId].setText(String.valueOf(
                 Integer.valueOf(quantityInputs[itemId].getText().toString()) - 1));
     }
@@ -277,7 +280,7 @@ public class TradeActivity extends AppCompatActivity {
      * add
      * @param itemId int
      */
-    public void add(int itemId) {
+    private void add(int itemId) {
         quantityInputs[itemId].setText(String.valueOf(
                 Integer.valueOf(quantityInputs[itemId].getText().toString()) + 1));
     }
@@ -295,7 +298,7 @@ public class TradeActivity extends AppCompatActivity {
     /**
      * update credits
      */
-    public void updateCredits() {
+    private void updateCredits() {
         currentCreditsText.setText("Current Balance: " + viewModel.getCredits());
     }
 

@@ -1,7 +1,5 @@
 package cs2340.spacetradergame.model;
 
-import android.util.Log;
-
 import com.google.firebase.firestore.Exclude;
 
 import java.util.List;
@@ -21,6 +19,7 @@ public class Game {
     public static final int MAX_SKILL_POINTS = 16;
     public static final int STARTING_CREDITS = 1000;
     public static final int ITEM_NUM = 10;
+    private static final int ATTACK_PROBABILITY = 20;
 
 
     private static Game instance = new Game();
@@ -31,23 +30,30 @@ public class Game {
     private SolarSystem currentSystem;
     private Planet currentPlanet;
 
-    private String saveCurrentSystem;
-    private String saveCurrentPlanet;
+    private String saveCurrentSystem; // for Firebase
+    private String saveCurrentPlanet; // for Firebase
 
-    private boolean wasAttacked = false;
+    private boolean wasAttacked;
 
     /**
-     * constructor for game
+     * constructor for game, explicit for Firebase
      */
     public Game() {
 
     }
 
     /**
-     * makes new universe
+     * Makes a new universe
+     * @param difficulty difficulty
+     * @param player new player
      */
-    public void newUniverse() {
+    public void newUniverse(int difficulty, Player player) {
         universe = new Universe();
+        this.difficulty = difficulty;
+        this.player = player;
+
+        player.setShip(new Gnat());
+
         universe.logUniverse();
 
         currentSystem = universe.getRandomSystem();
@@ -60,7 +66,7 @@ public class Game {
      * @param activity passed activity
      */
     public static void loadGame(String id, MainActivity activity) {
-        Database.loadGame(id, activity);
+        Database.db.loadGame(id, activity);
     }
 
     /**
@@ -75,7 +81,7 @@ public class Game {
     /**
      * loads a game
      */
-    public void loadGame() {
+    private void loadGame() {
         currentSystem = universe.findSystem(saveCurrentSystem);
         currentPlanet = currentSystem.findPlanet(saveCurrentPlanet);
     }
@@ -84,7 +90,7 @@ public class Game {
      * Computes during travel if the player was attacked
      */
     public void travel() {
-        wasAttacked = RandomMethods.nextInt(100) > 80;
+        wasAttacked = RandomMethods.nextInt(100) < ATTACK_PROBABILITY;
     }
 
     /**
@@ -135,15 +141,6 @@ public class Game {
 
     /**
      *
-     * @return difficulty
-     */
-    @Exclude
-    public int getDifficulty() {
-        return difficulty;
-    }
-
-    /**
-     *
      * @return player
      */
     @Exclude
@@ -152,7 +149,7 @@ public class Game {
     }
 
     /**
-     *
+     * For Firebase
      * @return universe
      */
     public Universe getUniverse() {
@@ -178,7 +175,7 @@ public class Game {
     }
 
     /**
-     *
+     * For Firebase
      * @return current system
      */
     public String getSaveCurrentSystem() {
@@ -186,7 +183,7 @@ public class Game {
     }
 
     /**
-     *
+     * For Firebase
      * @return name
      */
     public String getSaveCurrentPlanet() {
@@ -209,24 +206,5 @@ public class Game {
      */
     public void setCurrentPlanet(Planet planet) {
         currentPlanet = planet;
-    }
-
-    /**
-     * setter
-     * @param difficulty level
-     */
-    public void setDifficulty(int difficulty) {
-        Log.d("Difficulty set", String.valueOf(difficulty));
-        this.difficulty = difficulty;
-    }
-
-    /**
-     * setter
-     * @param player current
-     */
-    public void setPlayer(Player player) {
-        Log.d("Player set", player.toString());
-        this.player = player;
-        player.setShip(new Gnat());
     }
 }

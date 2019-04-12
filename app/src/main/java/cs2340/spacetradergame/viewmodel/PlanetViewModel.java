@@ -3,13 +3,10 @@ package cs2340.spacetradergame.viewmodel;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
-import android.widget.Space;
 
 import java.util.List;
-import java.util.Set;
 
 import cs2340.spacetradergame.entity.Planet;
-import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.entity.SolarSystem;
 import cs2340.spacetradergame.entity.Spaceship;
 import cs2340.spacetradergame.model.Database;
@@ -19,12 +16,12 @@ import cs2340.spacetradergame.model.Game;
  * class
  */
 public class PlanetViewModel extends AndroidViewModel {
-    private Planet currentPlanet;
-    private SolarSystem currentSystem;
-    private List<SolarSystem> systems;
-    private List<Planet> planets;
-    private Game game;
-    private Spaceship ship;
+    private final Planet currentPlanet;
+    private final SolarSystem currentSystem;
+    private final List<SolarSystem> systems;
+    private final List<Planet> planets;
+    private final Game game;
+    private final Spaceship ship;
 
     /**
      * constructor
@@ -113,38 +110,10 @@ public class PlanetViewModel extends AndroidViewModel {
     }
 
     /**
-     *
-     * @param system SolarSystem
-     */
-    public void setCurrentSystem(SolarSystem system) {
-        game.setCurrentSystem(system);
-    }
-
-    /**
-     *
-     * @param planet Planet
-     */
-    public void setCurrentPlanet(Planet planet) {
-        game.setCurrentPlanet(planet);
-    }
-
-    /**
-     *
-     * @return systems
-     */
-    public List<SolarSystem> getSystems() { return systems;}
-
-    /**
-     *
-     * @return planets
-     */
-    public List<Planet> getPlanets() {return planets;}
-
-    /**
      * savegame
      */
     public void saveGame() {
-        Database.saveGame(game);
+        Database.db.saveGame(game);
     }
 
 }

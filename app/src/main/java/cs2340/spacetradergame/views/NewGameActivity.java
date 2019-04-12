@@ -18,7 +18,7 @@ import cs2340.spacetradergame.viewmodel.NewGameViewModel;
  * class
  */
 public class NewGameActivity extends AppCompatActivity {
-    public static final String[] LEVEL_MAP = {"Beginner", "Easy", "Normal", "Hard", "Impossible"};
+    private static final String[] LEVEL_MAP = {"Beginner", "Easy", "Normal", "Hard", "Impossible"};
 
     private NewGameViewModel viewModel;
 
@@ -175,12 +175,14 @@ public class NewGameActivity extends AppCompatActivity {
      */
     public void onStartPressed(View view) {
         if(getSum() == Game.MAX_SKILL_POINTS) {
-            viewModel.createGame(textName.getText().toString(), levelBar.getProgress(), textToInt(textPilot),
-                    textToInt(textFighter), textToInt(textTrader), textToInt(textEngineer));
+            viewModel.createGame(textName.getText().toString(), levelBar.getProgress(),
+                    textToInt(textPilot), textToInt(textFighter), textToInt(textTrader),
+                    textToInt(textEngineer));
             Intent intent = new Intent(NewGameActivity.this, PlanetActivity.class);
             startActivity(intent);
         } else {
-            Toast.makeText(NewGameActivity.this, "Unallocated skill points", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewGameActivity.this, "Unallocated skill points",
+                    Toast.LENGTH_SHORT).show();
         }
     }
     /**

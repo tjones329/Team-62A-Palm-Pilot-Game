@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Space Trader Game</string>
     <color name="quartz">#4B4B4C</color>
-    <string name="title_activity_travel_solar_system">TravelSolarSystemActivity</string>
 </resources>

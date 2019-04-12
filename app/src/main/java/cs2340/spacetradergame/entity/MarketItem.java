@@ -15,7 +15,7 @@ Robots	  6	  4	  7 	5000	 -150	100	    LACKOFWORKERS	Never	Never	3500	5000
  */
 
 /**
- * enum formarketitem
+ * enum for marketitem
  */
 public enum MarketItem {
     WATER(0,0,30,3,4),
@@ -29,11 +29,11 @@ public enum MarketItem {
     NARCOTICS(5,0,900,-30,5),
     ROBOTS(6,4,5000,-150,100);
 
-    private int MTLP;
-    private int MTLU;
-    private int basePrice;
-    private int IPL;
-    private int var;
+    private final int MTLP;
+    private final int MTLU;
+    private final int basePrice;
+    private final int IPL;
+    private final int var;
 
     /**
      * basic constructor for marketitem

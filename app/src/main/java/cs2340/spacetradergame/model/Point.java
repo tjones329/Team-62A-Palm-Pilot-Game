@@ -28,7 +28,7 @@ public class Point {
      * dist
      * @param a point
      * @param b point
-     * @return douoble as distance
+     * @return double as distance
      */
     public static double distance(Point a, Point b) {
         return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
@@ -52,14 +52,14 @@ public class Point {
 
     @Override
     public int hashCode() {
-        return 31 * x + y;
+        return (31 * x) + y;
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Point) {
             Point p = (Point) obj;
-            return x == p.x && y == p.y;
+            return (x == p.x) && (y == p.y);
         } else {
             return false;
         }

@@ -5,7 +5,6 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.support.annotation.NonNull;
 
 import java.util.List;
-import java.util.Set;
 
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.SolarSystem;
@@ -16,10 +15,10 @@ import cs2340.spacetradergame.model.Game;
  * travelsolarsystem
  */
 public class TravelSolarSystemViewModel extends AndroidViewModel {
-    private List<SolarSystem> systems;
-    private List<Planet> planets;
-    private Spaceship ship;
-    private Game game;
+    private final List<SolarSystem> systems;
+    private final List<Planet> planets;
+    private final Spaceship ship;
+    private final Game game;
 
     /**
      * constructor

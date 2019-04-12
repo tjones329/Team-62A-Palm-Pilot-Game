@@ -20,6 +20,8 @@ public class Universe {
     public static final int universeWidth = 150;
     public static final int universeHeight = 100;
 
+    private static final int MIN_SYSTEMS = 22;
+
     private List<SolarSystem> systems;
 
     /**
@@ -29,9 +31,10 @@ public class Universe {
         class PlanetList {
             // Many of these names are from Star Trek: The Next Generation, or are small changes
             // to names of this series. A few have different origins.
-            private String[] planetNames = {
+            private final String[] planetNames = {
                     "Acamar",
-                    "Adahn",        // The alternate personality for The Nameless One in "Planescape: Torment"
+                    "Adahn",        // The alternate personality for The Nameless One in
+                    // "Planescape: Torment"
                     "Aldea", "Andevian", "Antedi", "Balosnee", "Baratas",
                     "Brax",            // One of the heroes in Master of Magic
                     "Bretel",        // This is a Dutch device for keeping your pants up.
@@ -41,7 +44,8 @@ public class Universe {
                     "Castor",        // A Greek demi-god
                     "Cestus", "Cheron",
                     "Courteney",    // After Courteney Cox…
-                    "Daled", "Damast", "Davlos", "Deneb", "Deneva", "Devidia", "Draylon", "Drema", "Endor",
+                    "Daled", "Damast", "Davlos", "Deneb", "Deneva", "Devidia", "Draylon", "Drema",
+                    "Endor",
                     "Esmee",        // One of the witches in Pratchett's Discworld
                     "Exo",
                     "Ferris",        // Iron
@@ -79,7 +83,8 @@ public class Universe {
                     "Mordan",
                     "Myrthe",        // The name of my daughter
                     "Nelvana",
-                    "Nix",            // An interesting spelling of a word meaning "nothing" in Dutch
+                    "Nix",            // An interesting spelling of a word meaning "nothing" in
+                    // Dutch
                     "Nyle",            // An interesting spelling of the great river
                     "Odet",
                     "Og",            // The last of the witches in Pratchett's Discworld
@@ -104,7 +109,8 @@ public class Universe {
                     "Titan",        // The largest moon of Jupiter
                     "Torin",        // A hero from Master of Magic
                     "Triacus", "Turkana", "Tyrus",
-                    "Umberlee",        // A god from AD&D, which has a prominent role in Baldur's Gate
+                    "Umberlee",        // A god from AD&D, which has a prominent role in Baldur's
+                    // Gate
                     "Utopia",        // The ultimate goal
                     "Vadera", "Vagra", "Vandor", "Ventax", "Xenon",
                     "Xerxes",        // A Greek hero
@@ -123,7 +129,7 @@ public class Universe {
         }
 
         PlanetList planetList = new PlanetList();
-        int systemNum = 22 + RandomMethods.nextInt(5);
+        int systemNum = MIN_SYSTEMS + RandomMethods.nextInt(5);
         this.systems = new ArrayList<>(systemNum);
         Set<SolarSystem> systems = new HashSet<>();
         for (int i = systemNum - 1; i >= 0; --i) {
@@ -177,7 +183,7 @@ public class Universe {
      */
     public SolarSystem findSystem(String systemName) {
         for (SolarSystem s : systems) {
-            if (s.getName().equals(systemName)) {
+            if (systemName.equals(s.getName())) {
                 return s;
             }
         }

@@ -29,12 +29,15 @@ public class PlayerActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textPilot)).setText(String.valueOf(viewModel.getPilot()));
         ((TextView) findViewById(R.id.textFighter)).setText(String.valueOf(viewModel.getFighter()));
         ((TextView) findViewById(R.id.textTrader)).setText(String.valueOf(viewModel.getTrader()));
-        ((TextView) findViewById(R.id.textEngineer)).setText(String.valueOf(viewModel.getEngineer()));
+        ((TextView) findViewById(R.id.textEngineer)).setText(String.valueOf(
+                viewModel.getEngineer()));
 
         ((TextView) findViewById(R.id.textHealth)).setText(String.valueOf(viewModel.getHealth()));
         ((TextView) findViewById(R.id.textSpeed)).setText(String.valueOf(viewModel.getSpeed()));
-        ((TextView) findViewById(R.id.textHyperdrive)).setText(String.valueOf(viewModel.getHyperdrive()));
+        ((TextView) findViewById(R.id.textHyperdrive)).setText(String.valueOf(
+                viewModel.getHyperdrive()));
         ((TextView) findViewById(R.id.textDamage)).setText(String.valueOf(viewModel.getDamage()));
-        ((TextView) findViewById(R.id.textCapacity)).setText(String.valueOf(viewModel.getCapacity()));
+        ((TextView) findViewById(R.id.textCapacity)).setText(String.valueOf(
+                viewModel.getCapacity()));
     }
 }
