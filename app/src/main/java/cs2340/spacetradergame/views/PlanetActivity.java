@@ -11,6 +11,9 @@ import android.widget.Toast;
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.viewmodel.PlanetViewModel;
 
+/**
+ * class
+ */
 public class PlanetActivity extends AppCompatActivity {
     PlanetViewModel viewModel;
 
@@ -38,21 +41,34 @@ public class PlanetActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * button
+     * @param view View
+     */
     public void onTradePressed(View view) {
         Intent intent = new Intent(PlanetActivity.this, TradeActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * button
+     * @param view View
+     */
     public void onPlayerPressed(View view) {
         Intent intent = new Intent(PlanetActivity.this, PlayerActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * button
+     * @param view View
+     */
     public void onTravelPressed(View view) {
         Intent intent = new Intent(PlanetActivity.this, TravelSolarSystemActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * button
+     * @param view View
+     */
     public void onSavePressed(View view) {
         viewModel.saveGame();
     }

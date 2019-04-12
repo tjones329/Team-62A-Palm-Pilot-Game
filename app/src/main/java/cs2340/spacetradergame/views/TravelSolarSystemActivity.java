@@ -16,6 +16,9 @@ import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.entity.SolarSystem;
 import cs2340.spacetradergame.viewmodel.TravelSolarSystemViewModel;
 
+/**
+ * travelactivity
+ */
 public class TravelSolarSystemActivity extends AppCompatActivity {
 
     private Spinner solarSpinner;
@@ -46,6 +49,10 @@ public class TravelSolarSystemActivity extends AppCompatActivity {
         solarSpinner.setSelection(0);
     }
 
+    /**
+     *  button
+     * @param view View
+     */
     public void onTravelSolarSystem(View view) {
         if (!viewModel.hasFuel()) {
             Toast.makeText(TravelSolarSystemActivity.this,

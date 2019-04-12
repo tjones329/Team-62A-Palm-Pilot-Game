@@ -14,6 +14,9 @@ import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.model.Game;
 import cs2340.spacetradergame.viewmodel.NewGameViewModel;
 
+/**
+ * class
+ */
 public class NewGameActivity extends AppCompatActivity {
     public static final String[] LEVEL_MAP = {"Beginner", "Easy", "Normal", "Hard", "Impossible"};
 
@@ -59,6 +62,10 @@ public class NewGameActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(NewGameViewModel.class);
     }
 
+    /**
+     * getter for sum
+     * @return sum of points
+     */
     private int getSum() {
         return Integer.parseInt(textPilot.getText().toString())
                 + Integer.parseInt(textFighter.getText().toString())
@@ -66,10 +73,19 @@ public class NewGameActivity extends AppCompatActivity {
                 + Integer.parseInt(textEngineer.getText().toString());
     }
 
+    /**
+     * text tto int
+     * @param t TextView
+     * @return text
+     */
     private int textToInt(TextView t) {
         return Integer.parseInt(t.getText().toString());
     }
 
+    /**
+     * subtract
+     * @param t TextView
+     */
     private void subtract(TextView t) {
         int currentVal = textToInt(t);
         if (currentVal > 0) {
@@ -80,6 +96,11 @@ public class NewGameActivity extends AppCompatActivity {
                     "Cannot have negative skill points", Toast.LENGTH_SHORT).show();
         }
     }
+
+    /**
+     * add to point
+     * @param t Textview
+     */
     private void add(TextView t) {
         int currentVal = textToInt(t);
         if (getSum() < cs2340.spacetradergame.model.Game.MAX_SKILL_POINTS) {
@@ -91,31 +112,67 @@ public class NewGameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * button
+     * @param view View
+     */
     public void onSubtractPilotPressed(View view) {
         subtract(textPilot);
     }
+
+    /**
+     *
+     * @param view View
+     */
     public void onAddPilotPressed(View view) {
         add(textPilot);
     }
+    /**
+     *
+     * @param view View
+     */
     public void onSubtractFighterPressed(View view) {
         subtract(textFighter);
     }
+    /**
+     *
+     * @param view View
+     */
     public void onAddFighterPressed(View view) {
         add(textFighter);
     }
+    /**
+     *
+     * @param view View
+     */
     public void onSubtractTraderPressed(View view) {
         subtract(textTrader);
     }
+    /**
+     *
+     * @param view View
+     */
     public void onAddTraderPressed(View view) {
         add(textTrader);
     }
+    /**
+     *
+     * @param view View
+     */
     public void onSubtractEngineerPressed(View view) {
         subtract(textEngineer);
     }
+    /**
+     *
+     * @param view View
+     */
     public void onAddEngineerPressed(View view) {
         add(textEngineer);
     }
-
+    /**
+     *
+     * @param view View
+     */
     public void onStartPressed(View view) {
         if(getSum() == Game.MAX_SKILL_POINTS) {
             viewModel.createGame(textName.getText().toString(), levelBar.getProgress(), textToInt(textPilot),
@@ -126,7 +183,10 @@ public class NewGameActivity extends AppCompatActivity {
             Toast.makeText(NewGameActivity.this, "Unallocated skill points", Toast.LENGTH_SHORT).show();
         }
     }
-
+    /**
+     *
+     * @param view View
+     */
     public void onClearPressed(View view) {
         textName.setText("");
         levelBar.setProgress(2, true);

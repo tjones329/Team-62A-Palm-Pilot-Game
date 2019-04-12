@@ -8,6 +8,9 @@ import android.widget.TextView;
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.viewmodel.PlayerViewModel;
 
+/**
+ * class
+ */
 public class PlayerActivity extends AppCompatActivity {
     private PlayerViewModel viewModel;
 

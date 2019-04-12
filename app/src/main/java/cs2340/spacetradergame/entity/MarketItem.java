@@ -14,6 +14,9 @@ Narcotics 5	  0	  5	    3500	-125	150	     BOREDOM	WEIRDMUSHROOMS	Never	2000	300
 Robots	  6	  4	  7 	5000	 -150	100	    LACKOFWORKERS	Never	Never	3500	5000
  */
 
+/**
+ * enum formarketitem
+ */
 public enum MarketItem {
     WATER(0,0,30,3,4),
     FURS(0,0,250,10,10),
@@ -32,6 +35,14 @@ public enum MarketItem {
     private int IPL;
     private int var;
 
+    /**
+     * basic constructor for marketitem
+     * @param MTLP techlevel produce
+     * @param MTLU techlevel sell
+     * @param basePrice base price
+     * @param IPL IPL
+     * @param var variation
+     */
     MarketItem(int MTLP, int MTLU, int basePrice, int IPL, int var) {
         this.MTLP = MTLP;
         this.MTLU = MTLU;
@@ -40,30 +51,60 @@ public enum MarketItem {
         this.var = var;
     }
 
+    /**
+     *
+     * @param techLevel int
+     * @return boolean if able to produce
+     */
     public boolean canProduce(Planet.TechLevel techLevel) {
         return MTLP <= techLevel.ordinal();
     }
 
+    /**
+     *
+     * @param techLevel int
+     * @return boolean if able to sell
+     */
     public boolean canSell(Planet.TechLevel techLevel) {
         return MTLU <= techLevel.ordinal();
     }
 
+    /**
+     *
+     * @return MTLP
+     */
     public int getMTLP() {
         return MTLP;
     }
 
+    /**
+     *
+     * @return MTLU
+     */
     public int getMTLU() {
         return MTLU;
     }
 
+    /**
+     *
+     * @return basePrice
+     */
     public int getBasePrice() {
         return basePrice;
     }
 
+    /**
+     *
+     * @return IPL;
+     */
     public int getIPL() {
         return IPL;
     }
 
+    /**
+     *
+     * @return var
+     */
     public int getVar() {
         return var;
     }

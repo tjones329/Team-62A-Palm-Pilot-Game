@@ -14,6 +14,9 @@ import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.viewmodel.TravelPlanetViewModel;
 
+/**
+ * class
+ */
 public class TravelPlanetActivity extends AppCompatActivity {
 
     private Spinner planetSpinner;
@@ -44,6 +47,10 @@ public class TravelPlanetActivity extends AppCompatActivity {
         planetSpinner.setSelection(0);
     }
 
+    /**
+     * button
+     * @param view View
+     */
     public void onTravelPlanet(View view) {
         String selectedPlanet = (String) planetSpinner.getSelectedItem();
         for (Planet planet : planets) {

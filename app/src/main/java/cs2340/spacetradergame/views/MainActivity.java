@@ -13,6 +13,9 @@ import java.io.PrintWriter;
 import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.model.Game;
 
+/**
+ * class
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -21,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    /**
+     * button
+     * @param view View
+     */
     public void onStartPressed(View view) {
         boolean savedGame = false;
         File appDir = getApplicationContext().getFilesDir();
@@ -48,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
+    /**
+     * launch activity
+     */
     public void launchPlanetActivity() {
         Intent intent = new Intent(MainActivity.this, PlanetActivity.class);
         startActivity(intent);

@@ -11,6 +11,9 @@ import java.util.Set;
 
 import cs2340.spacetradergame.model.RandomMethods;
 
+/**
+ * universe
+ */
 public class Universe {
 
 
@@ -19,6 +22,9 @@ public class Universe {
 
     private List<SolarSystem> systems;
 
+    /**
+     * constructor for universe
+     */
     public Universe() {
         class PlanetList {
             // Many of these names are from Star Trek: The Next Generation, or are small changes
@@ -147,6 +153,10 @@ public class Universe {
         }
     }
 
+    /**
+     * get random system
+     * @return system
+     */
     @Exclude
     public SolarSystem getRandomSystem() {
         int systemNum = RandomMethods.nextInt(systems.size());
@@ -160,6 +170,11 @@ public class Universe {
         return systems.iterator().next();
     }
 
+    /**
+     * finds system based on name
+     * @param systemName string
+     * @return the found solarsystem
+     */
     public SolarSystem findSystem(String systemName) {
         for (SolarSystem s : systems) {
             if (s.getName().equals(systemName)) {
@@ -169,6 +184,9 @@ public class Universe {
         return null;
     }
 
+    /**
+     * printed thing
+     */
     public void logUniverse() {
         Log.d("System number", String.valueOf(systems.size()));
         for (SolarSystem s : systems) {
@@ -176,7 +194,19 @@ public class Universe {
         }
     }
 
+    /**
+     *
+     * @return systems
+     */
     public List<SolarSystem> getSystems() {
         return systems;
+    }
+
+    /**
+     * setter
+     * @param systems list<SolarSystem></SolarSystem>
+     */
+    public void setSystems(List<SolarSystem> systems) {
+        this.systems = systems;
     }
 }

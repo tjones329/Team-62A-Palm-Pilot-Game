@@ -2,6 +2,9 @@ package cs2340.spacetradergame.model;
 
 import java.util.Random;
 
+/**
+ * class
+ */
 public class RandomMethods {
     private static Random random = new Random();
 
