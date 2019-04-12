@@ -40,7 +40,7 @@ public class Planet {
 
     public Planet(String name) {
         this.name = name;
-        orbitRadius = RandomMethods.nextInt(MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
+        orbitRadius = RandomMethods.nextInt(MAX_RADIUS + 1 - MIN_RADIUS) + MIN_RADIUS;
     }
 
     private void startPlanet() {

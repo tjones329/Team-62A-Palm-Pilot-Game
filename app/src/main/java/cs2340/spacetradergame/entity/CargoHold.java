@@ -11,7 +11,7 @@ import cs2340.spacetradergame.model.Game;
 
 public class CargoHold {
     private int capacity;
-    private int currentFilled = 0;
+    private int currentFilled;
     private int[] items = new int[Game.ITEM_NUM];
     private List<Integer> saveItems = new ArrayList<>(Game.ITEM_NUM);
 

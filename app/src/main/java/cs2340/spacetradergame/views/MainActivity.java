@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         boolean savedGame = false;
         File appDir = getApplicationContext().getFilesDir();
         for (String s : appDir.list()) {
-            if (s.equals("gameid.txt")) {
+            if ("gameid.txt".equals(s)) {
                 Game.loadGame("testgame", MainActivity.this);
                 savedGame = true;
                 break;

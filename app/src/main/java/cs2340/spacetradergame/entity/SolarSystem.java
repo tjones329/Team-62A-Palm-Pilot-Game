@@ -40,12 +40,16 @@ public class SolarSystem {
                 RandomMethods.nextInt(Universe.universeHeight));
     }
 
+    /**
+     * Initializes the values for the system and the planets in the system
+     * @param planetNames a non-null array of Strings with the names of the planets, which should
+     * not contain duplicate strings or have a length greater than
+     * Planet.MAX_ORBIT - Planet.MIN_ORBIT + 1 (number of orbits)
+     */
     public void startSystem(String[] planetNames) {
-        //we don't want techLevel to be system wide, it should vary for each planet. Commented out
-        //techLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)];
-        pirates = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
-        police = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
         government = Government.governments[RandomMethods.nextInt(Government.governments.length)];
+        police = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
+        pirates = RandomEncounter.values[RandomMethods.gaussian(RandomEncounter.values.length - 1)];
 
         this.planets = new ArrayList<>(planetNames.length);
         Set<Planet> planets = new HashSet<>();

@@ -135,7 +135,9 @@ public class Universe {
                 curr = new SolarSystem(name);
                 added = systems.add(curr);
             } while (!added);
-            int planetNum = Math.min(1 + RandomMethods.nextInt(8), planetList.size - i); // leave enough planet names for at least one per remaining system
+            int planetNum = Math.min(planetList.size - i,
+                    1 + RandomMethods.nextInt(Planet.MAX_RADIUS - Planet.MIN_RADIUS));
+            // leave enough planet names for at least one per remaining system
             String[] planets = new String[planetNum];
             for (int j = 0; j < planets.length; ++j) {
                 planets[j] = planetList.remove(RandomMethods.nextInt(planetList.size));

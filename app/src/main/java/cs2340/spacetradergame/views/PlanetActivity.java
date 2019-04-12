@@ -8,10 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Random;
-
 import cs2340.spacetradergame.R;
-import cs2340.spacetradergame.model.RandomMethods;
 import cs2340.spacetradergame.viewmodel.PlanetViewModel;
 
 public class PlanetActivity extends AppCompatActivity {
@@ -30,9 +27,6 @@ public class PlanetActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textGovernment)).setText(viewModel.getGovernment());
         ((TextView) findViewById(R.id.textPolice)).setText(viewModel.getPolice());
         ((TextView) findViewById(R.id.textPirates)).setText(viewModel.getPirates());
-
-        //to get the current planet, call the method in the viewModel getCurrentPlanet
-        //also, to get the prices, do planet.getMarket, and then call method calculateprices
     }
 
     @Override

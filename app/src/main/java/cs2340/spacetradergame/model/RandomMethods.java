@@ -11,7 +11,7 @@ public class RandomMethods {
      * @return the random number
      */
     public static int gaussian(int max) {
-        int i = (int) (((random.nextGaussian() + 3) / 6) * max);
+        int i = (int) (((random.nextGaussian() + 3) / 6) * (max + 1));
         if (i < 0) {
             return 0;
         } else if (i > max) {
