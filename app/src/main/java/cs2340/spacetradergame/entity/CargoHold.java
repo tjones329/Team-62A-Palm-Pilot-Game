@@ -6,6 +6,7 @@ import com.google.firebase.firestore.Exclude;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import cs2340.spacetradergame.model.Game;
 
@@ -24,14 +25,32 @@ public class CargoHold {
     }
 
     public void addCargo(List<Integer> items) {
+        if (items == null) {
+            throw new NoSuchElementException("Error, items is null!");
+        }
+        if (items.size() != Game.ITEM_NUM) {
+            throw new IllegalArgumentException("Error, incorrect size!");
+        }
         for (int i = 0; i < this.items.length; ++i) {
+            if (items.get(i) < 0) {
+                throw new IllegalArgumentException("Error, cannot have negative value!");
+            }
             this.items[i] += items.get(i);
             currentFilled += items.get(i);
         }
     }
 
     public void removeCargo(List<Integer> items) {
+        if (items == null) {
+            throw new NoSuchElementException("Error, items is null!");
+        }
+        if (items.size() != Game.ITEM_NUM) {
+            throw new IllegalArgumentException("Error, incorrect size!");
+        }
         for (int i = 0; i < this.items.length; ++i) {
+            if (items.get(i) < 0) {
+                throw new IllegalArgumentException("Error, cannot have negative value!");
+            }
             this.items[i] -= items.get(i);
             currentFilled -= items.get(i);
         }
