@@ -10,6 +10,9 @@ import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
+/**
+ * class
+ */
 public class CargoHoldTest {
 
     private CargoHold cg;

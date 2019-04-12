@@ -21,6 +21,9 @@ import cs2340.spacetradergame.R;
 import cs2340.spacetradergame.model.Game;
 import cs2340.spacetradergame.viewmodel.TradeViewModel;
 
+/**
+ * tradeactivity
+ */
 public class TradeActivity extends AppCompatActivity {
     private TradeViewModel viewModel;
 
@@ -48,6 +51,10 @@ public class TradeActivity extends AppCompatActivity {
     private List<Integer> prices;
     private List<Integer> quantities;
 
+    /**
+     * on create
+     * @param savedInstanceState Bundle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -193,6 +200,11 @@ public class TradeActivity extends AppCompatActivity {
         updateHold();
     }
 
+    /**
+     * getter
+     * @param s charsequence
+     * @return number
+     */
     private int getNumber(CharSequence s) {
         try {
             return Integer.valueOf(s.toString());
@@ -242,21 +254,37 @@ public class TradeActivity extends AppCompatActivity {
         }
         return !invalid;
     }
+
+    /**
+     * reset
+     * @param itemId int
+     */
     private void reset(int itemId) {
         Log.d("Action", "Reset");
         quantityInputs[itemId].setText(String.valueOf(quantities.get(itemId)));
     }
 
+    /**
+     * subtract
+     * @param itemId int
+     */
     public void subtract(int itemId) {
         quantityInputs[itemId].setText(String.valueOf(
                 Integer.valueOf(quantityInputs[itemId].getText().toString()) - 1));
     }
 
+    /**
+     * add
+     * @param itemId int
+     */
     public void add(int itemId) {
         quantityInputs[itemId].setText(String.valueOf(
                 Integer.valueOf(quantityInputs[itemId].getText().toString()) + 1));
     }
 
+    /**
+     * update cargo
+     */
     private void updateHold() {
         int[] hold = viewModel.getHold();
         for (int i = 0; i < Game.ITEM_NUM; ++i) {
@@ -264,71 +292,159 @@ public class TradeActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * update credits
+     */
     public void updateCredits() {
         currentCreditsText.setText("Current Balance: " + viewModel.getCredits());
     }
 
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract0Pressed(View view) {
         subtract(0);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract1Pressed(View view) {
         subtract(1);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract2Pressed(View view) {
         subtract(2);
     }
+
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract3Pressed(View view) {
         subtract(3);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract4Pressed(View view) {
         subtract(4);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract5Pressed(View view) {
         subtract(5);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract6Pressed(View view) {
         subtract(6);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract7Pressed(View view) {
         subtract(7);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract8Pressed(View view) {
         subtract(8);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onSubtract9Pressed(View view) {
         subtract(9);
     }
+    /**
+     * subtract
+     * @param view View
+     */
     public void onAdd0Pressed(View view) {
         add(0);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd1Pressed(View view) {
         add(1);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd2Pressed(View view) {
         add(2);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd3Pressed(View view) {
         add(3);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd4Pressed(View view) {
         add(4);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd5Pressed(View view) {
         add(5);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd6Pressed(View view) {
         add(6);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd7Pressed(View view) {
         add(7);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd8Pressed(View view) {
         add(8);
     }
+    /**
+     * add
+     * @param view View
+     */
     public void onAdd9Pressed(View view) {
         add(9);
     }
 
+    /**
+     * transact
+     * @param view View
+     */
     public void onTransactPressed(View view) {
         viewModel.transact(quantities);
         clear();
@@ -397,6 +513,10 @@ public class TradeActivity extends AppCompatActivity {
         }
     }*/
 
+    /**
+     * togglepress
+     * @param view View
+     */
     public void onTogglePressed(View view) {
         if (viewModel.toggle()) {
             transactButton.setText("Buy");
@@ -406,10 +526,17 @@ public class TradeActivity extends AppCompatActivity {
         clear();
     }
 
+    /**
+     * clear button
+     * @param view View
+     */
     public void onClearPressed(View view) {
         clear();
     }
 
+    /**
+     * clear
+     */
     private void clear() {
         for (int i = 0; i < Game.ITEM_NUM; ++i) {
             quantityInputs[i].setText("0");
@@ -417,6 +544,10 @@ public class TradeActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * back button
+     * @param view View
+     */
     public void onBackPressed(View view) {
         Intent intent = new Intent(TradeActivity.this, PlanetActivity.class);
         startActivity(intent);

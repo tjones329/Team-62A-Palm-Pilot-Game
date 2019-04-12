@@ -10,6 +10,9 @@ import cs2340.spacetradergame.model.RandomMethods;
 
 import static cs2340.spacetradergame.model.RandomMethods.gaussian;
 
+/**
+ * planet
+ */
 public class Planet {
     public enum TechLevel {
         PREAGRICULTURE, AGRICULTURE, MIDIEVAL, RENAISSANCE, EARLYINDUSTRIAL, INDUSTRIAL,
@@ -34,15 +37,25 @@ public class Planet {
     private List<Integer> prices;
     private List<Integer> quantities;
 
+    /**
+     * empty constructor
+     */
     public Planet() {
 
     }
 
+    /**
+     * constructor with name
+     * @param name string
+     */
     public Planet(String name) {
         this.name = name;
         orbitRadius = RandomMethods.nextInt(MAX_RADIUS - MIN_RADIUS) + MIN_RADIUS;
     }
 
+    /**
+     * initialize planet
+     */
     private void startPlanet() {
         if (techLevel != null) {
             return;
@@ -78,11 +91,6 @@ public class Planet {
         }
     }
 
-    /**
-     * Determines whether a particular market item is even produced by the planet
-     * @param item passed in enum item
-     * @return boolean return whether the planete's tech level meets the requirement for item
-     */
     /*private boolean canProduce(MarketItem item) {
         return item.getMTLP() <= techLevel.ordinal();
     }
@@ -91,14 +99,6 @@ public class Planet {
         return item.getMTLU() <= techLevel.ordinal();
     }*/
 
-    /**
-     * Gives the planet a unique tech level. For purposes of M7, although we have a variety
-     * of different attributes such as "resources" or "pirates", we will ignore them for now. We're
-     * still passing them in, but in order to calculate the prices for the market, techLevel is
-     * the only necessary variable.
-     * @param techLevel passed in techLevel for the creation of the market, prices determined in
-     * market
-     */
     /*public void initializeMarket(int techLevel) {
         this.techLevel = techLevel;
         market = new Market(techLevel);
@@ -122,19 +122,35 @@ public class Planet {
         return returnValue;
     }
 
+    /**
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return orbitRadius
+     */
     public int getOrbitRadius() {
         return orbitRadius;
     }
 
+    /**
+     *
+     * @return techLevel
+     */
     public TechLevel getTechLevel() {
         startPlanet();
         return techLevel;
     }
 
+    /**
+     *
+     * @return resources
+     */
     public Resources getResources() {
         startPlanet();
         return resources;
@@ -154,11 +170,19 @@ public class Planet {
     }
     */
 
+    /**
+     *
+     * @return prices
+     */
     public List<Integer> getPrices() {
         startPlanet();
         return prices;
     }
 
+    /**
+     *
+     * @return quantities
+     */
     public List<Integer> getQuantities() {
         startPlanet();
         return quantities;

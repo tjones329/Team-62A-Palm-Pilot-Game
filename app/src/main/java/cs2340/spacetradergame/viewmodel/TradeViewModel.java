@@ -11,6 +11,9 @@ import cs2340.spacetradergame.entity.Planet;
 import cs2340.spacetradergame.entity.Player;
 import cs2340.spacetradergame.model.Game;
 
+/**
+ * class
+ */
 public class TradeViewModel extends AndroidViewModel {
     private Planet currentPlanet;
     private Player player;
@@ -19,6 +22,10 @@ public class TradeViewModel extends AndroidViewModel {
 
     private List<Integer> prices;
 
+    /**
+     * constructor
+     * @param application Application
+     */
     public TradeViewModel (@NonNull Application application) {
         super(application);
         Game game = Game.getInstance();
@@ -28,6 +35,10 @@ public class TradeViewModel extends AndroidViewModel {
         hold = player.getHold();
     }
 
+    /**
+     * transact
+     * @param items List<Integer></Integer>
+     */
     public void transact(List<Integer> items) {
         int total = 0;
         for (int i = 0; i < Game.ITEM_NUM; ++i) {
@@ -42,14 +53,27 @@ public class TradeViewModel extends AndroidViewModel {
             player.sold(total);
         }
     }
+
+    /**
+     *
+     * @return prices
+     */
     public List<Integer> getPrices() {
         return prices;
     }
 
+    /**
+     *
+     * @return quantities
+     */
     public List<Integer> getAvailable() {
         return currentPlanet.getQuantities();
     }
 
+    /**
+     *
+     * @return hold
+     */
     public int[] getHold() {
         return hold.getItems();
     }
@@ -62,20 +86,46 @@ public class TradeViewModel extends AndroidViewModel {
         return (buySell = !buySell);
     }
 
+    /**
+     *
+     * @return busell
+     */
     public boolean getBuySell() {
         return buySell;
     }
 
+    /**
+     *
+     * @param cargo int
+     * @return boolean
+     */
     public boolean canAdd(int cargo) {
         return hold.canAdd(cargo);
     }
+
+    /**
+     *
+     * @param total int
+     * @return boolean
+     */
     public boolean canBuy(int total) {
         return player.getCredits() >= total;
     }
+
+    /**
+     *
+     * @param itemId int
+     * @param quantity int
+     * @return boolean
+     */
     public boolean canSell(int itemId, int quantity) {
         return hold.hasItemNum(itemId, quantity);
     }
 
+    /**
+     *
+     * @return credits
+     */
     public int getCredits() {
         return player.getCredits();
     }

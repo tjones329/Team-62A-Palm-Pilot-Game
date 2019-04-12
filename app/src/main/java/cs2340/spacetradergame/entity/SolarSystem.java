@@ -12,6 +12,9 @@ import java.util.Set;
 import cs2340.spacetradergame.model.Point;
 import cs2340.spacetradergame.model.RandomMethods;
 
+/**
+ * solar system
+ */
 public class SolarSystem {
     public enum Government { // If a solar system isn't governed on a system-wide level, not worth trading
         ANARCHY, TRIBAL, MONARCHY, DEMOCRACY, SOCIALIST, TOTALITARIAN;
@@ -30,16 +33,27 @@ public class SolarSystem {
     private RandomEncounter pirates;
     private List<Planet> planets;
 
+    /**
+     * constructor for solar system
+     */
     public SolarSystem() {
 
     }
 
+    /**
+     * constructor with name
+     * @param name string
+     */
     public SolarSystem(String name) {
         this.name = name;
         pos = new Point(RandomMethods.nextInt(Universe.universeWidth),
                 RandomMethods.nextInt(Universe.universeHeight));
     }
 
+    /**
+     * initialize system
+     * @param planetNames string[]
+     */
     public void startSystem(String[] planetNames) {
         //we don't want techLevel to be system wide, it should vary for each planet. Commented out
         //techLevel = TechLevel.techLevels[gaussian(random, TechLevel.techLevels.length - 1)];
@@ -60,6 +74,10 @@ public class SolarSystem {
         }
     }
 
+    /**
+     *
+     * @return random planet
+     */
     @Exclude
     public Planet getRandomPlanet() {
         int planetNum = RandomMethods.nextInt(planets.size());
@@ -73,6 +91,11 @@ public class SolarSystem {
         return planets.iterator().next();
     }
 
+    /**
+     * returns planet with id
+     * @param planetName name id
+     * @return planet
+     */
     public Planet findPlanet(String planetName) {
         for (Planet p : planets) {
             if (p.getName().equals(planetName)) {
@@ -106,6 +129,9 @@ public class SolarSystem {
         return locations;
     }
 
+    /**
+     * log information
+     */
     public void logSystem() {
         Log.d("Solar System", "Name: " + name
                 + " Position: " + pos.toString()
@@ -134,26 +160,50 @@ public class SolarSystem {
         }
     }
 
+    /**
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return pos
+     */
     public Point getPos() {
         return pos;
     }
 
+    /**
+     *
+     * @return government
+     */
     public Government getGovernment() {
         return government;
     }
 
+    /**
+     *
+     * @return police
+     */
     public RandomEncounter getPolice() {
         return police;
     }
 
+    /**
+     *
+     * @return pirates
+     */
     public RandomEncounter getPirates() {
         return pirates;
     }
 
+    /**
+     *
+     * @return planets
+     */
     public List<Planet> getPlanets() {
         return planets;
     }
